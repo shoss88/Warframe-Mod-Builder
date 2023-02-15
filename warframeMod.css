@@ -194,8 +194,9 @@ main{
     display: flex;
     justify-content: center;
     align-items: center;
+    column-gap: 40px;
 }
-.exilus-slot{
+.exilus-slot, .aura-slot{
     width: 200px;
     height: 80px;
     border: solid;
