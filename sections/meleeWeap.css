@@ -1,0 +1,305 @@
+html,body{
+    height: 100%;
+}
+body{
+    background-color: rgb(51, 49, 49);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-position: center center;
+}
+header{
+    background-color: rgb(40, 32, 104);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    flex-shrink: 0;
+    z-index: 100;
+}
+.title{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    word-wrap: break-word;
+}
+.name{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(101, 202, 248);
+    margin: 0;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.name:hover{
+    background-color: rgb(102, 175, 218);
+    color:rgb(40, 32, 104); 
+}
+.warframe-logo{
+    width: 150px;
+    object-fit: contain;
+    height: 100%;
+}
+nav{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+nav a{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: color 0.2s, background-color 0.2s;
+    text-align: center;
+}
+nav a:hover{
+    background-color: rgb(102, 175, 218);
+    color:rgb(40, 32, 104);
+}
+main{
+    padding: 200px 50px 50px 50px;
+}
+.sec-header{
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    background-color: rgb(51, 49, 49);
+}
+.color-key{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    column-gap: 30px;
+    width: auto;
+}
+.color-key div{
+    display: flex;
+    align-items: center;
+    column-gap: 5px;
+}
+.color-key p{
+    font-size: 20px;
+    font-family: Arial;
+    color: white;
+    font-weight: bold;
+}
+.color-key .box{
+    width: 30px;
+    height: 30px;
+    border-radius: 4px;
+}
+.saw-color div{
+    background-color: rgb(69, 160, 81);
+}
+.whip-color div{
+    background-color: rgb(255, 79, 35);
+}
+.claws-color div{
+    background-color: rgb(252, 58, 155);
+}
+.dagger-color div{
+    background-color: rgb(104, 40, 206)
+}
+.dualswords-color div{
+    background-color: rgb(255, 0, 0);
+}
+.exalted-color div{
+    background-color: rgb(255, 255, 205);
+}
+.fist-color div{
+    background-color: rgb(130, 216, 195);
+}
+.glaive-color div{
+    background-color: rgb(103, 130, 250);
+}
+.gunblade-color div{
+    background-color: rgb(113, 255, 184);
+}
+.hammer-color div{
+    background-color: rgb(128, 12, 12);
+}
+.heavyblade-color div{
+    background-color: rgb(76, 0, 255);
+}
+.scythe-color div{
+    background-color: rgb(3, 78, 59);
+}
+.machete-color div{
+    background-color: rgb(10, 253, 43);
+}
+.nikana-color div{
+    background-color: rgb(212, 0, 255);
+}
+.nunchaku-color div{
+    background-color: rgb(81, 100, 95);
+}
+.polearm-color div{
+    background-color: rgb(0, 174, 255);
+}
+.rapier-color div{
+    background-color: rgb(200, 252, 14);
+}
+.staff-color div{
+    background-color: rgb(0, 56, 241);
+}
+.swordshield-color div{
+    background-color: rgb(255, 166, 0);
+}
+.sword-color div{
+    background-color: rgb(219, 158, 158);
+}
+.tonfa-color div{
+    background-color: rgb(194, 163, 245);
+}
+.warfan-color div{
+    background-color: rgb(255, 249, 249);
+}
+.grid-wrapper{
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+}
+.weapon-grid{
+    display: grid;
+    width: 1600px;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    column-gap: 20px;
+    row-gap: 20px;
+}
+.melee{
+    background-color: rgba(110, 108, 108, 0.466);
+    height: 250px;
+    display: flex;
+    align-items:flex-start;
+    justify-content: center;
+    position: relative;
+    z-index: -10;
+    overflow: auto;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}
+.melee img{
+    object-fit: cover;
+    display: block;
+    width: 100%;
+}
+.melee p{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    padding: 5px 5px 5px 5px;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    background-color: rgb(117, 117, 117);
+}
+.melee.saw p{
+    background-color: rgb(69, 160, 81);
+}
+.melee.whip p{
+    background-color: rgb(255, 79, 35);
+}
+.melee.claws p{
+    background-color: rgb(252, 58, 155);
+}
+.melee.dagger p{
+    background-color: rgb(104, 40, 206)
+}
+.melee.dualswords p{
+    background-color: rgb(255, 0, 0);
+}
+.melee.exalted p{
+    background-color: rgb(255, 255, 205);
+    color: black;
+}
+.melee.fist p{
+    background-color: rgb(130, 216, 195);
+    color: black;
+}
+.melee.glaive p{
+    background-color: rgb(103, 130, 250);
+}
+.melee.gunblade p{
+    background-color: rgb(113, 255, 184);
+    color: black;
+}
+.melee.hammer p{
+    background-color: rgb(128, 12, 12);
+}
+.melee.heavyblade p{
+    background-color: rgb(76, 0, 255);
+}
+.melee.scythe p{
+    background-color: rgb(3, 78, 59);
+}
+.melee.machete p{
+    background-color: rgb(10, 253, 43);
+    color: black;
+}
+.melee.nikana p{
+    background-color: rgb(212, 0, 255);
+}
+.melee.nunchaku p{
+    background-color: rgb(81, 100, 95);
+}
+.melee.polearm p{
+    background-color: rgb(0, 174, 255);
+}
+.melee.rapier p{
+    background-color: rgb(200, 252, 14);
+    color: black;
+}
+.melee.staff p{
+    background-color: rgb(0, 56, 241);
+}
+.melee.swordshield p{
+    background-color: rgb(255, 166, 0);
+}
+.melee.sword p{
+    background-color: rgb(219, 158, 158);
+}
+.melee.tonfa p{
+    background-color: rgb(194, 163, 245);
+    color: black;
+}
+.melee.warfan p{
+    background-color: rgb(255, 249, 249);
+    color: black;
+}
+@media (max-width: 1163px){
+    header{
+        height: 170px;
+    }
+    main{
+        padding-top: 500px;
+    }
+    .sec-header{
+        top: 170px;
+    }
+}

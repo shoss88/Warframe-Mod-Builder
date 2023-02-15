@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+        <title>New HTML Testing</title>
+        <meta charset="UTF-8"> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="keywords" content="HTML, CSS">
+        <meta name="description">
+        <link rel="stylesheet" href="weaponMod.css">
+    </head>
+    <body>
+        <header>
+            <div class="title">
+                <img class="warframe-logo" src="images/pngegg.png">
+                <a href="/mainPage.html" class="name">Warframe Mod Builder</a>
+            </div>
+            <nav>
+                <a href="/sections/primaryWeapons.html">Primary<br> Weapons</a>
+                <a href="/sections/secondaryWeapons.html">Secondary<br> Weapons</a>
+                <a href="/sections/meleeWeapons.html">Melee<br> Weapons</a>
+                <a href="/sections/warframes.html"> Warframes</a>
+            </nav>
+        </header>
+        <main>
+            <div class="upper">
+                <div class="weapon-box">
+                    <p id="weapon-name">
+                        Acceltra
+                        <img class="weapon-img" src="/sections/primaryImages/SapientPrimaryWeapon.png.webp">
+                    </p>
+                    <div id="capacity">
+                        <div id="progress-bar">
+                            <div id="mod-capacity">
+                                <p id="mod-remaining" onclick="updateProgressBar()">
+                                    60
+                                </p>
+                                <p id="mod-total">
+                                    &nbsp/ 60
+                                </p>
+                            </div>
+                            <div id="progress-filled">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="weapon-stats">
+                        <div class="stat-line">
+                            <p class="stat">Accuracy</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Ammo Maximum</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Ammo Pickup</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Fire Rate</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Magazine</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Multishot</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Noise</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Reload</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Trigger</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Critical Multiplier</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Critical Chance</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                        <div class="stat-line">
+                            <p class="stat">Status Chance</p>
+                            <p class="stat-number">0</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="mod-place">
+                    <div class="forma">
+                        <img src="images/forma.png">
+                        <p id="forma-count">0</p>
+                    </div>
+                    <div class="top-slots">
+                        <div class="exilus-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-slots">
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="mod-slot">
+                            <button class="current-polarity">
+                                <p>--</p>
+                            </button>
+                            <div class="dropdown">
+                                <button class="polarity">
+                                    <p>--</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Madurai_Pol.png">
+                                    <p>Madurai</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Vazarin_Pol.png">
+                                    <p>Vazarin</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Naramon_Pol.png">
+                                    <p>Naramon</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Zenurik_Pol.png">
+                                    <p>Zenurik</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Unairu_Pol.png">
+                                    <p>Unairu</p>
+                                </button>
+                                <button class="polarity">
+                                    <img src="images/Umbra_Pol.webp">
+                                    <p>Umbra</p>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="mod-section">
+
+            </div>
+        </main>
+        <script src="scripts.js"></script>
+    </body>
+</html>

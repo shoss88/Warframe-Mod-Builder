@@ -1,0 +1,261 @@
+html,body{
+    height: 100%;
+}
+p{
+    margin: 0;
+}
+button{
+    cursor: pointer;
+}
+body{
+    background-color: rgb(51, 49, 49);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-blend-mode: multiply;
+    background-attachment: fixed;
+    background-position: center center;
+}
+header{
+    background-color: rgb(40, 32, 104);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    height: 100px;
+    flex-shrink: 0;
+    z-index: 100;
+}
+.title{
+    display: flex;
+    align-items: center;
+    height: 100%;
+    word-wrap: break-word;
+}
+.name{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 50px;
+    font-weight: bold;
+    color: rgb(101, 202, 248);
+    margin: 0;
+    display: flex;
+    height: 100%;
+    align-items: center;
+    text-decoration: none;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+.name:hover{
+    background-color: rgb(102, 175, 218);
+    color:rgb(40, 32, 104); 
+}
+.warframe-logo{
+    width: 150px;
+    object-fit: contain;
+    height: 100%;
+}
+nav{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+nav a{
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial;
+    font-size: 25px;
+    font-weight: bold;
+    height: 100%;
+    text-decoration: none;
+    color: white;
+    padding-left: 15px;
+    padding-right: 15px;
+    transition: color 0.2s, background-color 0.2s;
+    text-align: center;
+}
+nav a:hover{
+    background-color: rgb(102, 175, 218);
+    color:rgb(40, 32, 104);
+}
+main{
+    padding-top: 100px;
+}
+.upper{
+    display: flex;
+}
+.weapon-box{
+    display: flex;
+    flex-direction: column;
+    min-width: 200px;
+    width: 280px;
+    background-color: rgb(78, 77, 77);
+}
+#weapon-name{
+    color: white;
+    font-family: Arial;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    margin: 0;
+    padding-top: 5px;
+}
+.weapon-img{
+    object-fit: cover;
+    width: 100%;
+    display: block;
+}
+#capacity{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+#progress-bar{
+    display: flex;
+    position: relative;
+    overflow: hidden;
+    background-color: rgb(154, 157, 158);
+    border-radius: 13px;
+    width: 100%;
+    margin-left: 20px;
+    margin-right: 20px;
+    height: 25px;
+}
+#mod-capacity{
+    display: flex;
+    justify-content: center;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin-left: -25px;
+    margin-top: -9px;
+    color: white;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+#progress-filled{
+    background-color: rgb(85, 210, 85);
+    width: 0%;
+}
+.weapon-stats{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.stat-line{
+    display: flex;
+    justify-content: space-between;
+    border-top: solid;
+    border-width: 2px;
+}
+.stat-line p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    padding: 2px;
+}
+.stat{
+    color: white;
+}
+.stat-number{
+    color: rgb(102, 168, 243);
+}
+.mod-place{
+    background-color: rgb(37, 37, 37);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 120px;
+    padding: 40px;
+    position: relative;
+}
+.forma{
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    column-gap: 20px;
+    align-items: center;
+}
+.forma img{
+    width: 50px;
+    object-fit: contain;
+}
+.forma p{
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: white;
+}
+.top-slots{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.exilus-slot{
+    width: 200px;
+    height: 80px;
+    border: solid;
+    border-width: 1px;
+    border-color: white;
+    position: relative;
+}
+
+.bottom-slots{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    column-gap: 40px;
+    row-gap: 90px;
+}
+.mod-slot{
+    width: 200px;
+    height: 80px;
+    border: solid;
+    border-width: 1px;
+    border-color: white;
+    position: relative;
+}
+.current-polarity{
+    position: absolute;
+    left: 50%;
+    margin-left: -25px;
+    top: -30px;
+    width: 50px;
+    height: 22px;
+    background-color: white;
+    padding: 0;
+    border: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.dropdown{
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: -5px;
+    z-index: 50;
+}
+.polarity{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+    background-color: white;
+    border: solid;
+    border-width: 1px;
+    margin-top: -1px;
+}
+@media (max-width: 1163px){
+    header{
+        height: 170px;
+    }
+    main{
+        padding-top: 170px;
+    }
+}
