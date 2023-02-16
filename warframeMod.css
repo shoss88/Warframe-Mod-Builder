@@ -120,8 +120,8 @@ main{
     background-color: rgb(154, 157, 158);
     border-radius: 13px;
     width: 100%;
-    margin-left: 20px;
-    margin-right: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
     height: 25px;
 }
 #mod-capacity{
@@ -140,16 +140,32 @@ main{
     background-color: rgb(85, 210, 85);
     width: 0%;
 }
-.warframe-stats{
+.warframe-stats, .ability-section{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    row-gap: 5px;
+} 
+.abilities{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 5px;
+}
+.abilities img{
+    object-fit: cover;
+    width: 100%;
+}
+.ability-1, .ability-2, .ability-3, .ability-4{
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
 }
 .stat-line{
     display: flex;
     justify-content: space-between;
-    border-top: solid;
-    border-width: 2px;
 }
 .stat-line p{
     font-family: Arial, Helvetica, sans-serif;
