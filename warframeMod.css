@@ -95,7 +95,7 @@ main{
     background-color: rgb(78, 77, 77);
     row-gap: 5px;
 }
-#warframe-name{
+#warframe-name p{
     color: white;
     font-family: Arial;
     font-size: 20px;
@@ -104,7 +104,7 @@ main{
     margin: 0;
     padding-top: 5px;
 }
-.warframe-img{
+#warframe-img{
     object-fit: cover;
     width: 100%;
     display: block;

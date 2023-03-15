@@ -1366,6 +1366,28 @@ let warframes = [
         ability4: "/abilityIcons/zephyr/TenguTornado.png.webp"
     }
 ]
+let warframe = localStorage.getItem("warframe");
+let warframePic = localStorage.getItem("warframe-pic");
+for (let i = 0; i < warframes.length; i++){
+    if (warframes[i].name === warframe){
+        document.getElementById("warframe-name").firstElementChild.innerText = warframe;
+        document.getElementById("warframe-img").src = warframePic;
+        document.getElementById("health").innerText = warframes[i].health;
+        document.getElementById("shield").innerText = warframes[i].shield;
+        document.getElementById("armor").innerText = warframes[i].armor;
+        document.getElementById("sprintspeed").innerText = warframes[i].sprintSpeed;
+        document.getElementById("energy").innerText = warframes[i].energy;
+        document.getElementById("ability-1-img").src = warframes[i].ability1;
+        document.getElementById("ability-2-img").src = warframes[i].ability2;
+        document.getElementById("ability-3-img").src = warframes[i].ability3;
+        document.getElementById("ability-4-img").src = warframes[i].ability4;
+        document.getElementById("duration").innerText = warframes[i].duration;
+        document.getElementById("efficiency").innerText = warframes[i].efficiency;
+        document.getElementById("range").innerText = warframes[i].range;
+        document.getElementById("strength").innerText = warframes[i].strength;
+        i = warframes.length;
+    }
+}
 
 let buttons = document.getElementsByClassName("current-polarity");
 for (let i = 0; i < buttons.length; i++){
