@@ -220,8 +220,8 @@ let warframes = [
         efficiency: 100,
         range: 100,
         strength: 100,
-        ability1: "/abilityIcons/equinox/YinYangTargetCalm.png.webp",
-        ability2: "/abilityIcons/equinox/YinYangSwitch.png.webp",
+        ability1: "/abilityIcons/equinox/YinYangSwitch.png.webp",
+        ability2: "/abilityIcons/equinox/YinYangTargetCalm.png.webp",
         ability3: "/abilityIcons/equinox/YinYangAuraEnemyDamage.png.webp",
         ability4: "/abilityIcons/equinox/YinYangBlastHeal.png.webp"
     },{
@@ -235,8 +235,8 @@ let warframes = [
         efficiency: 100,
         range: 100,
         strength: 100,
-        ability1: "/abilityIcons/equinox/YinYangTargetCalm.png.webp",
-        ability2: "/abilityIcons/equinox/YinYangSwitch.png.webp",
+        ability1: "/abilityIcons/equinox/YinYangSwitch.png.webp",
+        ability2: "/abilityIcons/equinox/YinYangTargetCalm.png.webp",
         ability3: "/abilityIcons/equinox/YinYangAuraEnemyDamage.png.webp",
         ability4: "/abilityIcons/equinox/YinYangBlastHeal.png.webp"
     },{
