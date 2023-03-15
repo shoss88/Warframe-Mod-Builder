@@ -93,6 +93,7 @@ main{
     min-width: 200px;
     width: 280px;
     background-color: rgb(78, 77, 77);
+    row-gap: 5px;
 }
 #warframe-name{
     color: white;

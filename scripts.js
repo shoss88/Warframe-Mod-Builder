@@ -9,6 +9,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/ash/NinjaStar.png.webp",
+        ability2: "/abilityIcons/ash/NinjaSmokeScreen.png.webp",
+        ability3: "/abilityIcons/ash/NinjaTeleport.png.webp",
+        ability4: "/abilityIcons/ash/NinjaStorm.png.webp"
     },{
         name: "Ash Prime",
         health: 150,
@@ -20,6 +24,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/ash/NinjaStar.png.webp",
+        ability2: "/abilityIcons/ash/NinjaSmokeScreen.png.webp",
+        ability3: "/abilityIcons/ash/NinjaTeleport.png.webp",
+        ability4: "/abilityIcons/ash/NinjaStorm.png.webp"
     },{
         name: "Atlas",
         health: 100,
@@ -31,6 +39,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/atlas/AtlasRockPunch.png.webp",
+        ability2: "/abilityIcons/atlas/AtlasBarrier.png.webp",
+        ability3: "/abilityIcons/atlas/AtlasStoneGaze.png.webp",
+        ability4: "/abilityIcons/atlas/AtlasSummon.png.webp"
     },{
         name: "Atlas Prime",
         health: 175,
@@ -42,6 +54,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/atlas/AtlasRockPunch.png.webp",
+        ability2: "/abilityIcons/atlas/AtlasBarrier.png.webp",
+        ability3: "/abilityIcons/atlas/AtlasStoneGaze.png.webp",
+        ability4: "/abilityIcons/atlas/AtlasSummon.png.webp"
     },{
         name: "Banshee",
         health: 100,
@@ -53,6 +69,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/banshee/BansheeSonicBoom.png.webp",
+        ability2: "/abilityIcons/banshee/BansheeSonar.png.webp",
+        ability3: "/abilityIcons/banshee/BansheeSilence.png.webp",
+        ability4: "/abilityIcons/banshee/BansheeSoundQuake.png.webp"
     },{
         name: "Banshee Prime",
         health: 100,
@@ -64,6 +84,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/banshee/BansheeSonicBoom.png.webp",
+        ability2: "/abilityIcons/banshee/BansheeSonar.png.webp",
+        ability3: "/abilityIcons/banshee/BansheeSilence.png.webp",
+        ability4: "/abilityIcons/banshee/BansheeSoundQuake.png.webp"
     },{
         name: "Baruuk",
         health: 75,
@@ -75,6 +99,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/baruuk/BaruukBulletDodger.png.webp",
+        ability2: "/abilityIcons/baruuk/BaruukCalmingWave.png.webp",
+        ability3: "/abilityIcons/baruuk/BaruukOrbitalDisarm.png.webp",
+        ability4: "/abilityIcons/baruuk/BaruukOverTheEdge.png.webp"
     },{
         name: "Baruuk Prime",
         health: 75,
@@ -86,6 +114,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/baruuk/BaruukBulletDodger.png.webp",
+        ability2: "/abilityIcons/baruuk/BaruukCalmingWave.png.webp",
+        ability3: "/abilityIcons/baruuk/BaruukOrbitalDisarm.png.webp",
+        ability4: "/abilityIcons/baruuk/BaruukOverTheEdge.png.webp"
     },{
         name: "Caliban",
         health: 100,
@@ -97,6 +129,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/caliban/CalibanWhirlwind.png.webp",
+        ability2: "/abilityIcons/caliban/CalibanShockwave.png.webp",
+        ability3: "/abilityIcons/caliban/CalibanSummonSentients.png.webp",
+        ability4: "/abilityIcons/caliban/CalibanTriLaser.png.webp"
     },{
         name: "Chroma",
         health: 100,
@@ -108,6 +144,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/chroma/DragonElementalAttack.png.webp",
+        ability2: "/abilityIcons/chroma/DragonLuckyDragon.png.webp",
+        ability3: "/abilityIcons/chroma/DragonDragonScales.png.webp",
+        ability4: "/abilityIcons/chroma/DragonSentient.png.webp"
     },{
         name: "Chroma Prime",
         health: 100,
@@ -119,6 +159,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/chroma/DragonElementalAttack.png.webp",
+        ability2: "/abilityIcons/chroma/DragonLuckyDragon.png.webp",
+        ability3: "/abilityIcons/chroma/DragonDragonScales.png.webp",
+        ability4: "/abilityIcons/chroma/DragonSentient.png.webp"
     },{
         name: "Citrine",
         health: 135,
@@ -130,6 +174,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/citrine/FracturedBlast130xWhite.webp",
+        ability2: "/abilityIcons/citrine/PreservingShell130xWhite.webp",
+        ability3: "/abilityIcons/citrine/PrismaticGem130xWhite.webp",
+        ability4: "/abilityIcons/citrine/Crystallize130xWhite.webp"
     },{
         name: "Ember",
         health: 100,
@@ -141,6 +189,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/ember/EmberFireBall.png.webp",
+        ability2: "/abilityIcons/ember/EmberImmolation.png.webp",
+        ability3: "/abilityIcons/ember/EmberFireBlast.png.webp",
+        ability4: "/abilityIcons/ember/EmberInferno.png.webp"
     },{
         name: "Ember Prime",
         health: 100,
@@ -152,6 +204,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/ember/EmberFireBall.png.webp",
+        ability2: "/abilityIcons/ember/EmberImmolation.png.webp",
+        ability3: "/abilityIcons/ember/EmberFireBlast.png.webp",
+        ability4: "/abilityIcons/ember/EmberInferno.png.webp"
     },{
         name: "Equinox",
         health: 100,
@@ -163,6 +219,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/equinox/YinYangTargetCalm.png.webp",
+        ability2: "/abilityIcons/equinox/YinYangSwitch.png.webp",
+        ability3: "/abilityIcons/equinox/YinYangAuraEnemyDamage.png.webp",
+        ability4: "/abilityIcons/equinox/YinYangBlastHeal.png.webp"
     },{
         name: "Equinox Prime",
         health: 125,
@@ -174,6 +234,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/equinox/YinYangTargetCalm.png.webp",
+        ability2: "/abilityIcons/equinox/YinYangSwitch.png.webp",
+        ability3: "/abilityIcons/equinox/YinYangAuraEnemyDamage.png.webp",
+        ability4: "/abilityIcons/equinox/YinYangBlastHeal.png.webp"
     },{
         name: "Excalibur",
         health: 100,
@@ -185,6 +249,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/excalibur/Power04.png.webp",
+        ability2: "/abilityIcons/excalibur/Power01.png.webp",
+        ability3: "/abilityIcons/excalibur/Power03.png.webp",
+        ability4: "/abilityIcons/excalibur/ExcaliburSwordOfDoom.png.webp"
     },{
         name: "Excalibur Prime",
         health: 100,
@@ -196,6 +264,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/excalibur/Power04.png.webp",
+        ability2: "/abilityIcons/excalibur/Power01.png.webp",
+        ability3: "/abilityIcons/excalibur/Power03.png.webp",
+        ability4: "/abilityIcons/excalibur/ExcaliburSwordOfDoom.png.webp"
     },{
         name: "Excalibur Umbra",
         health: 100,
@@ -207,6 +279,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/excalibur-umbra/Power04.png.webp",
+        ability2: "/abilityIcons/excalibur-umbra/ExcaliburUmbraRoar.png.webp",
+        ability3: "/abilityIcons/excalibur-umbra/Power03.png.webp",
+        ability4: "/abilityIcons/excalibur-umbra/ExcaliburSwordOfDoom.png.webp"
     },{
         name: "Frost",
         health: 100,
@@ -218,6 +294,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/frost/FrostFreeze.png.webp",
+        ability2: "/abilityIcons/frost/FrostIceWave.png.webp",
+        ability3: "/abilityIcons/frost/FrostSnowGlobe.png.webp",
+        ability4: "/abilityIcons/frost/FrostAvalanche.png.webp"
     },{
         name: "Frost Prime",
         health: 100,
@@ -229,6 +309,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/frost/FrostFreeze.png.webp",
+        ability2: "/abilityIcons/frost/FrostIceWave.png.webp",
+        ability3: "/abilityIcons/frost/FrostSnowGlobe.png.webp",
+        ability4: "/abilityIcons/frost/FrostAvalanche.png.webp"
     },{
         name: "Gara",
         health: 100,
@@ -240,6 +324,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/gara/GlassShank.png.webp",
+        ability2: "/abilityIcons/gara/GlassShatteredAura.png.webp",
+        ability3: "/abilityIcons/gara/GlassFragmentedReality.png.webp",
+        ability4: "/abilityIcons/gara/GlassRing.png.webp"
     },{
         name: "Gara Prime",
         health: 120,
@@ -251,6 +339,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/gara/GlassShank.png.webp",
+        ability2: "/abilityIcons/gara/GlassShatteredAura.png.webp",
+        ability3: "/abilityIcons/gara/GlassFragmentedReality.png.webp",
+        ability4: "/abilityIcons/gara/GlassRing.png.webp"
     },{
         name: "Garuda",
         health: 100,
@@ -262,6 +354,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/garuda/GarudaMeatShield.png.webp",
+        ability2: "/abilityIcons/garuda/GarudaSanguineSiphon.png.webp",
+        ability3: "/abilityIcons/garuda/GarudaBloodSunder.png.webp",
+        ability4: "/abilityIcons/garuda/GarudaBoneZone.png.webp"
     },{
         name: "Garuda Prime",
         health: 100,
@@ -273,6 +369,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/garuda/GarudaMeatShield.png.webp",
+        ability2: "/abilityIcons/garuda/GarudaSanguineSiphon.png.webp",
+        ability3: "/abilityIcons/garuda/GarudaBloodSunder.png.webp",
+        ability4: "/abilityIcons/garuda/GarudaBoneZone.png.webp"
     },{
         name: "Gauss",
         health: 100,
@@ -284,6 +384,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/gauss/RunnerMachRush.png.webp",
+        ability2: "/abilityIcons/gauss/RunnerKineticPlating.png.webp",
+        ability3: "/abilityIcons/gauss/RunnerEnergyTransfer.png.webp",
+        ability4: "/abilityIcons/gauss/RunnerRedline.png.webp"
     },{
         name: "Grendel",
         health: 350,
@@ -295,6 +399,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/grendel/GrendelDevour.png.webp",
+        ability2: "/abilityIcons/grendel/GrendelConsume.png.webp",
+        ability3: "/abilityIcons/grendel/GrendelBellyBowling.png.webp",
+        ability4: "/abilityIcons/grendel/GrendelRegurgitate.png.webp"
     },{
         name: "Gyre",
         health: 100,
@@ -306,6 +414,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/gyre/GyrePulse.png.webp",
+        ability2: "/abilityIcons/gyre/GyreSphere.png.webp",
+        ability3: "/abilityIcons/gyre/GyreEnergized.png.webp",
+        ability4: "/abilityIcons/gyre/GyreOvercharged.png.webp"
     },{
         name: "Harrow",
         health: 100,
@@ -317,6 +429,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/harrow/PriestCondemn.png.webp",
+        ability2: "/abilityIcons/harrow/PriestPenance.png.webp",
+        ability3: "/abilityIcons/harrow/PriestRavage.png.webp",
+        ability4: "/abilityIcons/harrow/PriestPact.png.webp"
     },{
         name: "Harrow Prime",
         health: 100,
@@ -328,6 +444,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/harrow/PriestCondemn.png.webp",
+        ability2: "/abilityIcons/harrow/PriestPenance.png.webp",
+        ability3: "/abilityIcons/harrow/PriestRavage.png.webp",
+        ability4: "/abilityIcons/harrow/PriestPact.png.webp"
     },{
         name: "Hildryn",
         health: 75,
@@ -339,6 +459,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/hildryn/HildrynBalefire.png.webp",
+        ability2: "/abilityIcons/hildryn/HildrynShieldPillage.png.webp",
+        ability3: "/abilityIcons/hildryn/HildrynHaven.png.webp",
+        ability4: "/abilityIcons/hildryn/HildrynWingedDeath.png.webp"
     },{
         name: "Hydroid",
         health: 100,
@@ -350,6 +474,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/hydroid/PirateCannonBarage.png.webp",
+        ability2: "/abilityIcons/hydroid/PirateTidalWave.png.webp",
+        ability3: "/abilityIcons/hydroid/PirateLiquefy.png.webp",
+        ability4: "/abilityIcons/hydroid/PirateKraken.png.webp"
     },{
         name: "Hydroid Prime",
         health: 100,
@@ -361,6 +489,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/hydroid/PirateCannonBarage.png.webp",
+        ability2: "/abilityIcons/hydroid/PirateTidalWave.png.webp",
+        ability3: "/abilityIcons/hydroid/PirateLiquefy.png.webp",
+        ability4: "/abilityIcons/hydroid/PirateKraken.png.webp"
     },{
         name: "Inaros",
         health: 550,
@@ -372,6 +504,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/inaros/SandmanBlast.png.webp",
+        ability2: "/abilityIcons/inaros/SandmanDevour.png.webp",
+        ability3: "/abilityIcons/inaros/SandmanStorm.png.webp",
+        ability4: "/abilityIcons/inaros/SandmanSwarm.png.webp"
     },{
         name: "Inaros Prime",
         health: 575,
@@ -383,6 +519,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/inaros/SandmanBlast.png.webp",
+        ability2: "/abilityIcons/inaros/SandmanDevour.png.webp",
+        ability3: "/abilityIcons/inaros/SandmanStorm.png.webp",
+        ability4: "/abilityIcons/inaros/SandmanSwarm.png.webp"
     },{
         name: "Ivara",
         health: 75,
@@ -394,6 +534,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/ivara/RangerVersatileQuiver.png.webp",
+        ability2: "/abilityIcons/ivara/RangerAfterTouch.png.webp",
+        ability3: "/abilityIcons/ivara/RangerSteal.png.webp",
+        ability4: "/abilityIcons/ivara/RangerExaltedBow.png.webp"
     },{
         name: "Ivara Prime",
         health: 75,
@@ -405,6 +549,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/ivara/RangerVersatileQuiver.png.webp",
+        ability2: "/abilityIcons/ivara/RangerAfterTouch.png.webp",
+        ability3: "/abilityIcons/ivara/RangerSteal.png.webp",
+        ability4: "/abilityIcons/ivara/RangerExaltedBow.png.webp"
     },{
         name: "Khora",
         health: 125,
@@ -416,6 +564,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/khora/KhoraCrack.png.webp",
+        ability2: "/abilityIcons/khora/KhoraAllTiedUp.png.webp",
+        ability3: "/abilityIcons/khora/KhoraSummon.png.webp",
+        ability4: "/abilityIcons/khora/KhoraStrangleDome.png.webp"
     },{
         name: "Khora Prime",
         health: 125,
@@ -427,6 +579,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/khora/KhoraCrack.png.webp",
+        ability2: "/abilityIcons/khora/KhoraAllTiedUp.png.webp",
+        ability3: "/abilityIcons/khora/KhoraSummon.png.webp",
+        ability4: "/abilityIcons/khora/KhoraStrangleDome.png.webp"
     },{
         name: "Lavos",
         health: 200,
@@ -438,6 +594,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/lavos/AlchemistSerpent.png.webp",
+        ability2: "/abilityIcons/lavos/AlchemistRush.png.webp",
+        ability3: "/abilityIcons/lavos/AlchemistTransmuter.png.webp",
+        ability4: "/abilityIcons/lavos/AlchemistDistill.png.webp"
     },{
         name: "Limbo",
         health: 100,
@@ -449,6 +609,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/limbo/LimboBanish.png.webp",
+        ability2: "/abilityIcons/limbo/LimboRiftWalk.png.webp",
+        ability3: "/abilityIcons/limbo/LimboVolatile.png.webp",
+        ability4: "/abilityIcons/limbo/LimboTearInSpace.png.webp"
     },{
         name: "Limbo Prime",
         health: 100,
@@ -460,6 +624,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/limbo/LimboBanish.png.webp",
+        ability2: "/abilityIcons/limbo/LimboRiftWalk.png.webp",
+        ability3: "/abilityIcons/limbo/LimboVolatile.png.webp",
+        ability4: "/abilityIcons/limbo/LimboTearInSpace.png.webp"
     },{
         name: "Loki",
         health: 75,
@@ -471,6 +639,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/loki/LokiDecoy.png.webp",
+        ability2: "/abilityIcons/loki/LokiInvisibility.png.webp",
+        ability3: "/abilityIcons/loki/LokiSwitchTeleport.png.webp",
+        ability4: "/abilityIcons/loki/LokiRadialDisarm.png.webp"
     },{
         name: "Loki Prime",
         health: 75,
@@ -482,6 +654,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/loki/LokiDecoy.png.webp",
+        ability2: "/abilityIcons/loki/LokiInvisibility.png.webp",
+        ability3: "/abilityIcons/loki/LokiSwitchTeleport.png.webp",
+        ability4: "/abilityIcons/loki/LokiRadialDisarm.png.webp"
     },{
         name: "Mag",
         health: 75,
@@ -493,6 +669,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/mag/MagPull.png.webp",
+        ability2: "/abilityIcons/mag/MagMagnetize.png.webp",
+        ability3: "/abilityIcons/mag/MagShieldRenew.png.webp",
+        ability4: "/abilityIcons/mag/MagCrush.png.webp"
     },{
         name: "Mag Prime",
         health: 100,
@@ -504,6 +684,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/mag/MagPull.png.webp",
+        ability2: "/abilityIcons/mag/MagMagnetize.png.webp",
+        ability3: "/abilityIcons/mag/MagShieldRenew.png.webp",
+        ability4: "/abilityIcons/mag/MagCrush.png.webp"
     },{
         name: "Mesa",
         health: 125,
@@ -515,6 +699,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/mesa/GunslingerBallisticBattery.png.webp",
+        ability2: "/abilityIcons/mesa/GunslingerRussianRoulette.png.webp",
+        ability3: "/abilityIcons/mesa/GunslingerRicochetArmour.png.webp",
+        ability4: "/abilityIcons/mesa/GunslingerGunFu.png.webp"
     },{
         name: "Mesa Prime",
         health: 135,
@@ -526,6 +714,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/mesa/GunslingerBallisticBattery.png.webp",
+        ability2: "/abilityIcons/mesa/GunslingerRussianRoulette.png.webp",
+        ability3: "/abilityIcons/mesa/GunslingerRicochetArmour.png.webp",
+        ability4: "/abilityIcons/mesa/GunslingerGunFu.png.webp"
     },{
         name: "Mirage",
         health: 80,
@@ -537,6 +729,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/mirage/HarlequinReflection.png.webp",
+        ability2: "/abilityIcons/mirage/HarlequinDeadlyTrap.png.webp",
+        ability3: "/abilityIcons/mirage/HarlequinLightDark.png.webp",
+        ability4: "/abilityIcons/mirage/HarlequinPrism.png.webp"
     },{
         name: "Mirage Prime",
         health: 80,
@@ -548,6 +744,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/mirage/HarlequinReflection.png.webp",
+        ability2: "/abilityIcons/mirage/HarlequinDeadlyTrap.png.webp",
+        ability3: "/abilityIcons/mirage/HarlequinLightDark.png.webp",
+        ability4: "/abilityIcons/mirage/HarlequinPrism.png.webp"
     },{
         name: "Nekros",
         health: 100,
@@ -559,6 +759,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nekros/NecroSoulPunch.png.webp",
+        ability2: "/abilityIcons/nekros/NecroTerrorTotem.png.webp",
+        ability3: "/abilityIcons/nekros/NecroSearchTheDead.png.webp",
+        ability4: "/abilityIcons/nekros/NecroCloneTheDead.png.webp"
     },{
         name: "Nekros Prime",
         health: 100,
@@ -570,6 +774,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nekros/NecroSoulPunch.png.webp",
+        ability2: "/abilityIcons/nekros/NecroTerrorTotem.png.webp",
+        ability3: "/abilityIcons/nekros/NecroSearchTheDead.png.webp",
+        ability4: "/abilityIcons/nekros/NecroCloneTheDead.png.webp"
     },{
         name: "Nezha",
         health: 125,
@@ -581,6 +789,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nezha/NezhaTrail.png.webp",
+        ability2: "/abilityIcons/nezha/NezhaRing.png.webp",
+        ability3: "/abilityIcons/nezha/NeshaSash.png.webp",
+        ability4: "/abilityIcons/nezha/NezhaSpear.png.webp"
     },{
         name: "Nezha Prime",
         health: 125,
@@ -592,6 +804,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nezha/NezhaTrail.png.webp",
+        ability2: "/abilityIcons/nezha/NezhaRing.png.webp",
+        ability3: "/abilityIcons/nezha/NeshaSash.png.webp",
+        ability4: "/abilityIcons/nezha/NezhaSpear.png.webp"
     },{
         name: "Nidus",
         health: 150,
@@ -603,6 +819,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nidus/InfestedRupture.png.webp",
+        ability2: "/abilityIcons/nidus/InfestedTendrils.png.webp",
+        ability3: "/abilityIcons/nidus/InfestedSymbioticLink.png.webp",
+        ability4: "/abilityIcons/nidus/InfestedInfest.png.webp"
     },{
         name: "Nidus Prime",
         health: 175,
@@ -614,6 +834,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nidus/InfestedRupture.png.webp",
+        ability2: "/abilityIcons/nidus/InfestedTendrils.png.webp",
+        ability3: "/abilityIcons/nidus/InfestedSymbioticLink.png.webp",
+        ability4: "/abilityIcons/nidus/InfestedInfest.png.webp"
     },{
         name: "Nova",
         health: 100,
@@ -625,6 +849,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nova/NovaNullStar.png.webp",
+        ability2: "/abilityIcons/nova/NovaAntimatterDrop.png.webp",
+        ability3: "/abilityIcons/nova/NovaWormHole.png.webp",
+        ability4: "/abilityIcons/nova/NovaMolecularPrime.png.webp"
     },{
         name: "Nova Prime",
         health: 100,
@@ -636,6 +864,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nova/NovaNullStar.png.webp",
+        ability2: "/abilityIcons/nova/NovaAntimatterDrop.png.webp",
+        ability3: "/abilityIcons/nova/NovaWormHole.png.webp",
+        ability4: "/abilityIcons/nova/NovaMolecularPrime.png.webp"
     },{
         name: "Nyx",
         health: 100,
@@ -647,6 +879,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nyx/NyxMindControl.png.webp",
+        ability2: "/abilityIcons/nyx/NyxPsychicBolts.png.webp",
+        ability3: "/abilityIcons/nyx/NyxChaos.png.webp",
+        ability4: "/abilityIcons/nyx/NyxAbsorb.png.webp"
     },{
         name: "Nyx Prime",
         health: 100,
@@ -658,6 +894,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/nyx/NyxMindControl.png.webp",
+        ability2: "/abilityIcons/nyx/NyxPsychicBolts.png.webp",
+        ability3: "/abilityIcons/nyx/NyxChaos.png.webp",
+        ability4: "/abilityIcons/nyx/NyxAbsorb.png.webp"
     },{
         name: "Oberon",
         health: 125,
@@ -669,6 +909,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/oberon/PaladinSmite.png.webp",
+        ability2: "/abilityIcons/oberon/PaladinHallowedGround.png.webp",
+        ability3: "/abilityIcons/oberon/PaladinRenewal.png.webp",
+        ability4: "/abilityIcons/oberon/PaladinReckoning.png.webp"
     },{
         name: "Oberon Prime",
         health: 125,
@@ -680,6 +924,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/oberon/PaladinSmite.png.webp",
+        ability2: "/abilityIcons/oberon/PaladinHallowedGround.png.webp",
+        ability3: "/abilityIcons/oberon/PaladinRenewal.png.webp",
+        ability4: "/abilityIcons/oberon/PaladinReckoning.png.webp"
     },{
         name: "Octavia",
         health: 100,
@@ -691,6 +939,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/octavia/BardMusicBox.png.webp",
+        ability2: "/abilityIcons/octavia/BardPiedPiper.png.webp",
+        ability3: "/abilityIcons/octavia/BardPumpJam.png.webp",
+        ability4: "/abilityIcons/octavia/BardAmplifier.png.webp"
     },{
         name: "Octavia Prime",
         health: 100,
@@ -702,6 +954,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/octavia/BardMusicBox.png.webp",
+        ability2: "/abilityIcons/octavia/BardPiedPiper.png.webp",
+        ability3: "/abilityIcons/octavia/BardPumpJam.png.webp",
+        ability4: "/abilityIcons/octavia/BardAmplifier.png.webp"
     },{
         name: "Protea",
         health: 100,
@@ -713,6 +969,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/protea/ProteaGrenadeFan.png.webp",
+        ability2: "/abilityIcons/protea/ProteaBFG.png.webp",
+        ability3: "/abilityIcons/protea/ProteaDispensary.png.webp",
+        ability4: "/abilityIcons/protea/ProteaTemporalAnchor.png.webp"
     },{
         name: "Revenant",
         health: 100,
@@ -724,6 +984,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/revenant/RevenantEnthrall.png.webp",
+        ability2: "/abilityIcons/revenant/RevenantMesmerSkin.png.webp",
+        ability3: "/abilityIcons/revenant/RevenantReave.png.webp",
+        ability4: "/abilityIcons/revenant/RevenantDanseMacabre.png.webp"
     },{
         name: "Revenant Prime",
         health: 100,
@@ -735,6 +999,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/revenant/RevenantEnthrall.png.webp",
+        ability2: "/abilityIcons/revenant/RevenantMesmerSkin.png.webp",
+        ability3: "/abilityIcons/revenant/RevenantReave.png.webp",
+        ability4: "/abilityIcons/revenant/RevenantDanseMacabre.png.webp"
     },{
         name: "Rhino",
         health: 100,
@@ -746,6 +1014,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/rhino/RhinoDash.png.webp",
+        ability2: "/abilityIcons/rhino/RhinoIronSkin.png.webp",
+        ability3: "/abilityIcons/rhino/RhinoRadialBlast.png.webp",
+        ability4: "/abilityIcons/rhino/RhinoStomp.png.webp"
     },{
         name: "Rhino Prime",
         health: 100,
@@ -757,6 +1029,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/rhino/RhinoDash.png.webp",
+        ability2: "/abilityIcons/rhino/RhinoIronSkin.png.webp",
+        ability3: "/abilityIcons/rhino/RhinoRadialBlast.png.webp",
+        ability4: "/abilityIcons/rhino/RhinoStomp.png.webp"
     },{
         name: "Saryn",
         health: 125,
@@ -768,6 +1044,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/saryn/SarynVenom.png.webp",
+        ability2: "/abilityIcons/saryn/SarynMoult.png.webp",
+        ability3: "/abilityIcons/saryn/SarynContagion.png.webp",
+        ability4: "/abilityIcons/saryn/SarynMiasma.png.webp"
     },{
         name: "Saryn Prime",
         health: 125,
@@ -779,6 +1059,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/saryn/SarynVenom.png.webp",
+        ability2: "/abilityIcons/saryn/SarynMoult.png.webp",
+        ability3: "/abilityIcons/saryn/SarynContagion.png.webp",
+        ability4: "/abilityIcons/saryn/SarynMiasma.png.webp"
     },{
         name: "Sevagoth",
         health: 100,
@@ -790,6 +1074,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/sevagoth/WraithReap.png.webp",
+        ability2: "/abilityIcons/sevagoth/WraithSow.png.webp",
+        ability3: "/abilityIcons/sevagoth/WraithGloom.png.webp",
+        ability4: "/abilityIcons/sevagoth/WraithDontFearTheReaper.png.webp"
     },{
         name: "Styanax",
         health: 100,
@@ -801,6 +1089,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/styanax/AxiosJavelin130xWhite.webp",
+        ability2: "/abilityIcons/styanax/TharrosStrike130xWhite.webp",
+        ability3: "/abilityIcons/styanax/RallyPoint130xWhite.webp",
+        ability4: "/abilityIcons/styanax/FinalStand130xWhite.webp"
     },{
         name: "Titania",
         health: 100,
@@ -812,6 +1104,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/titania/FaerieDust.png.webp",
+        ability2: "/abilityIcons/titania/FaerieSoul.png.webp",
+        ability3: "/abilityIcons/titania/FaerieLamp.png.webp",
+        ability4: "/abilityIcons/titania/FaerieShrink.png.webp"
     },{
         name: "Titania Prime",
         health: 125,
@@ -823,6 +1119,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/titania/FaerieDust.png.webp",
+        ability2: "/abilityIcons/titania/FaerieSoul.png.webp",
+        ability3: "/abilityIcons/titania/FaerieLamp.png.webp",
+        ability4: "/abilityIcons/titania/FaerieShrink.png.webp"
     },{
         name: "Trinity",
         health: 100,
@@ -834,6 +1134,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/trinity/TrinityWellOfLife.png.webp",
+        ability2: "/abilityIcons/trinity/TrinityEnergyVampire.png.webp",
+        ability3: "/abilityIcons/trinity/TrinityLink.png.webp",
+        ability4: "/abilityIcons/trinity/TrinityBlessing.png.webp"
     },{
         name: "Trinity Prime",
         health: 100,
@@ -845,6 +1149,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/trinity/TrinityWellOfLife.png.webp",
+        ability2: "/abilityIcons/trinity/TrinityEnergyVampire.png.webp",
+        ability3: "/abilityIcons/trinity/TrinityLink.png.webp",
+        ability4: "/abilityIcons/trinity/TrinityBlessing.png.webp"
     },{
         name: "Valkyr",
         health: 100,
@@ -856,6 +1164,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/valkyr/BerserkerGrapplingHook.png.webp",
+        ability2: "/abilityIcons/valkyr/BerserkerScream.png.webp",
+        ability3: "/abilityIcons/valkyr/BerserkerShieldBash.png.webp",
+        ability4: "/abilityIcons/valkyr/BerserkerLastStand.png.webp"
     },{
         name: "Valkyr Prime",
         health: 100,
@@ -867,6 +1179,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/valkyr/BerserkerGrapplingHook.png.webp",
+        ability2: "/abilityIcons/valkyr/BerserkerScream.png.webp",
+        ability3: "/abilityIcons/valkyr/BerserkerShieldBash.png.webp",
+        ability4: "/abilityIcons/valkyr/BerserkerLastStand.png.webp"
     },{
         name: "Vauban",
         health: 100,
@@ -878,6 +1194,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/vauban/VaubanTeslaDrones.png.webp",
+        ability2: "/abilityIcons/vauban/VaubanMinelayer.png.webp",
+        ability3: "/abilityIcons/vauban/VaubanOrbitalStrike.png.webp",
+        ability4: "/abilityIcons/vauban/VaubanBastille.png.webp"
     },{
         name: "Vauban Prime",
         health: 100,
@@ -889,6 +1209,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/vauban/VaubanTeslaDrones.png.webp",
+        ability2: "/abilityIcons/vauban/VaubanMinelayer.png.webp",
+        ability3: "/abilityIcons/vauban/VaubanOrbitalStrike.png.webp",
+        ability4: "/abilityIcons/vauban/VaubanBastille.png.webp"
     },{
         name: "Volt",
         health: 100,
@@ -900,6 +1224,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/volt/VoltChainLightning.png.webp",
+        ability2: "/abilityIcons/volt/VoltSuperSpeed.png.webp",
+        ability3: "/abilityIcons/volt/VoltShield.png.webp",
+        ability4: "/abilityIcons/volt/VoltOverLoad.png.webp"
     },{
         name: "Volt Prime",
         health: 100,
@@ -911,6 +1239,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/volt/VoltChainLightning.png.webp",
+        ability2: "/abilityIcons/volt/VoltSuperSpeed.png.webp",
+        ability3: "/abilityIcons/volt/VoltShield.png.webp",
+        ability4: "/abilityIcons/volt/VoltOverLoad.png.webp"
     },{
         name: "Voruna",
         health: 150,
@@ -922,6 +1254,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/voruna/WerewolfShroud.png.webp",
+        ability2: "/abilityIcons/voruna/WerewolfBite.png.webp",
+        ability3: "/abilityIcons/voruna/WerewolfLeap.png.webp",
+        ability4: "/abilityIcons/voruna/WerewolfHowl.png.webp"
     },{
         name: "Wisp",
         health: 100,
@@ -933,6 +1269,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/wisp/WispReservoir.png.webp",
+        ability2: "/abilityIcons/wisp/WispList.png.webp",
+        ability3: "/abilityIcons/wisp/WispHarnessTheLight.png.webp",
+        ability4: "/abilityIcons/wisp/WispSolGate.png.webp"
     },{
         name: "Wukong",
         health: 150,
@@ -944,6 +1284,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/wukong/WukongHairOfTheKing.png.webp",
+        ability2: "/abilityIcons/wukong/WukongCloudWalker.png.webp",
+        ability3: "/abilityIcons/wukong/WukongDefy.png.webp",
+        ability4: "/abilityIcons/wukong/WukongPrimalFury.png.webp"
     },{
         name: "Wukong Prime",
         health: 150,
@@ -955,6 +1299,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/wukong/WukongHairOfTheKing.png.webp",
+        ability2: "/abilityIcons/wukong/WukongCloudWalker.png.webp",
+        ability3: "/abilityIcons/wukong/WukongDefy.png.webp",
+        ability4: "/abilityIcons/wukong/WukongPrimalFury.png.webp"
     },{
         name: "Xaku",
         health: 97,
@@ -966,6 +1314,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/xaku/BrokenFrameVoidRot.png.webp",
+        ability2: "/abilityIcons/xaku/BrokenFrameTendrilGrasp.png.webp",
+        ability3: "/abilityIcons/xaku/BrokenFrameEmbraceTheFallen.png.webp",
+        ability4: "/abilityIcons/xaku/BrokenSelfDestruct.png.webp"
     },{
         name: "Yareli",
         health: 100,
@@ -977,6 +1329,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/yareli/YareliWaterTomb.png.webp",
+        ability2: "/abilityIcons/yareli/YareliAquaBoard.png.webp",
+        ability3: "/abilityIcons/yareli/YareliAqueousDisks.png.webp",
+        ability4: "/abilityIcons/yareli/YareliCrushingWaters.png.webp"
     },{
         name: "Zephyr",
         health: 150,
@@ -988,6 +1344,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/zephyr/TenguTailWind.png.webp",
+        ability2: "/abilityIcons/zephyr/TenguAirBurst.png.webp",
+        ability3: "/abilityIcons/zephyr/TenguTurbulance.png.webp",
+        ability4: "/abilityIcons/zephyr/TenguTornado.png.webp"
     },{
         name: "Zephyr Prime",
         health: 150,
@@ -999,6 +1359,10 @@ let warframes = [{
         efficiency: 100,
         range: 100,
         strength: 100,
+        ability1: "/abilityIcons/zephyr/TenguTailWind.png.webp",
+        ability2: "/abilityIcons/zephyr/TenguAirBurst.png.webp",
+        ability3: "/abilityIcons/zephyr/TenguTurbulance.png.webp",
+        ability4: "/abilityIcons/zephyr/TenguTornado.png.webp"
     }
 ]
 let buttons = document.getElementsByClassName("current-polarity");
