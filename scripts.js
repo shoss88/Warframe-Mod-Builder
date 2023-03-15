@@ -1,4 +1,5 @@
-let warframes = [{
+let warframes = [
+    {
         name: "Ash",
         health: 150,
         shield: 100,
@@ -1365,6 +1366,7 @@ let warframes = [{
         ability4: "/abilityIcons/zephyr/TenguTornado.png.webp"
     }
 ]
+
 let buttons = document.getElementsByClassName("current-polarity");
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", openDropdown);
