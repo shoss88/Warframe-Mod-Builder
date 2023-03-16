@@ -163,7 +163,36 @@ main{
     align-items: center;
     justify-content: center;
     width: 100%;
+    position: relative;
 }
+#ability-1-name, #ability-2-name, #ability-3-name, #ability-4-name{
+    position: absolute;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    display: none;
+    background-color: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 5px 8px 5px 8px;
+    top: 100%;
+    left: 0px;
+    z-index: 200;
+}
+.ability-1:hover #ability-1-name{
+    display: flex;
+}
+.ability-2:hover #ability-2-name{
+    display: flex;
+}
+.ability-3:hover #ability-3-name{
+    display: flex;
+}
+.ability-4:hover #ability-4-name{
+    display: flex;
+}
+
 .stat-line{
     display: flex;
     justify-content: space-between;
