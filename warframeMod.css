@@ -1,5 +1,5 @@
 html,body{
-    height: 100%;
+    height: 1000px;
 }
 p{
     margin: 0;
@@ -260,12 +260,11 @@ main{
 }
 .bottom-slots{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 200px 200px 200px 200px;
     column-gap: 40px;
     row-gap: 90px;
 }
 .mod-slot{
-    width: 200px;
     height: 80px;
     border: solid;
     border-width: 1px;
@@ -304,6 +303,30 @@ main{
     border: solid;
     border-width: 1px;
     margin-top: -1px;
+}
+.mod-section{
+    display: grid;
+    grid-template-columns: repeat(30, 200px);
+    overflow-x: auto;
+    column-gap: 20px;
+}
+.mod {
+    height: 100px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+.mod-frame-top, .mod-frame-bottom{
+    object-fit: cover;
+    width: 100%;
+}
+.mod-frame-top{
+    position: absolute;
+    top: -8px;
+}
+.mod-frame-bottom{
+    position: absolute;
+    bottom: -8px;
 }
 @media (max-width: 1163px){
     header{
