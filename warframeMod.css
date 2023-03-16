@@ -1,5 +1,5 @@
 html,body{
-    height: 1000px;
+    height: 4000px;
 }
 p{
     margin: 0;
@@ -25,7 +25,7 @@ header{
     align-items: center;
     height: 100px;
     flex-shrink: 0;
-    z-index: 100;
+    z-index: 2000;
 }
 .title{
     display: flex;
@@ -260,7 +260,7 @@ main{
 }
 .bottom-slots{
     display: grid;
-    grid-template-columns: 200px 200px 200px 200px;
+    grid-template-columns: repeat(4, 200px);
     column-gap: 40px;
     row-gap: 90px;
 }
@@ -305,20 +305,25 @@ main{
     margin-top: -1px;
 }
 .mod-section{
+    margin-top: 30px;
     display: grid;
-    grid-template-columns: repeat(30, 200px);
+    grid-template-columns: repeat(30, 210px);
     overflow-x: auto;
+    overflow-y: hidden;
     column-gap: 20px;
+    height: 2000px;
 }
 .mod {
-    height: 100px;
-    position: relative;
+    height: 109px;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    position: relative;
 }
 .mod-frame-top, .mod-frame-bottom{
     object-fit: cover;
     width: 100%;
+    z-index: 400;
 }
 .mod-frame-top{
     position: absolute;
@@ -326,8 +331,62 @@ main{
 }
 .mod-frame-bottom{
     position: absolute;
-    bottom: -8px;
+    bottom: 0px;
 }
+.mod-top{
+    position: relative;
+    width: 94%;
+    padding-top: 5px;
+    height: 72px;
+    overflow: hidden;
+    flex-wrap: wrap;
+}
+.mod-cost{
+    display: flex;
+    background-color: rgb(255, 250, 250);
+    position: absolute;
+    right: 1px;
+    top: 10px;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    z-index: 1000;
+}
+#drain{
+    font-size: 14px;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+}
+#polarity{
+    object-fit: cover;
+    height: 16px;
+}
+#mod-img{
+    object-fit: cover;
+    object-position: top;
+    width: 100%;
+    filter: brightness(30%);
+}
+.mod-bottom{
+    width: 94%;
+    margin-top: -35px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* background-color: bisque; */
+}
+#mod-name{
+    font-size: 17px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bolder;
+    color: #9f7874;
+    text-shadow: 1px 1px 1px black;
+    z-index: 500;
+}
+
 @media (max-width: 1163px){
     header{
         height: 170px;
