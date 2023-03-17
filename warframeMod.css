@@ -381,9 +381,6 @@ main{
     width: 100%;
     filter: brightness(30%);
 }
-/* .mod-borders{
-    position: absolute;
-} */
 .border-line1, .border-line2{
     position: absolute;
     display: none;
@@ -407,7 +404,6 @@ main{
 .mod-bottom{
     padding-top: 5px;
     width: 94%;
-    margin-top: -35px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -426,6 +422,7 @@ main{
 #mod-effect{
     text-align: center;
     font-size: 15px;
+    padding-bottom: 35px;
     font-weight: normal;
     display: none;
 }
@@ -433,7 +430,8 @@ main{
     display: none;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: absolute;
+    bottom: 0px;
     z-index: 100;
     padding-top: 5px;
     padding-bottom: 10px;
@@ -472,6 +470,7 @@ main{
 }
 .mod:hover .mod-bottom{
     bottom: 18px;
+    min-height: 80px;
     z-index: 100;
 }
 .mod:hover .border-line1{
