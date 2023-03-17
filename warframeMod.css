@@ -305,16 +305,16 @@ main{
     margin-top: -1px;
 }
 .mod-section{
-    margin-top: 30px;
+    margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(30, 210px);
+    grid-template-columns: repeat(153, 200px);
     overflow-x: auto;
     overflow-y: hidden;
     column-gap: 20px;
-    height: 2000px;
+    height: 350px;
 }
 .mod {
-    max-height: 100px;
+    max-height: 95px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -344,6 +344,14 @@ main{
     flex-wrap: wrap;
     z-index: 100;
 }
+.mod-type{
+    position: absolute;
+    top: 9px;
+    left: 83px;
+    object-fit: cover;
+    width: 21px;
+    z-index: 600;
+}
 .mod-cost{
     display: flex;
     background-color: rgb(0, 0, 0);
@@ -360,8 +368,19 @@ main{
     border-top-style: solid;
     border-bottom-style: solid;
     border-width: 1px;
-    border-color: #9f7874;
     padding-left: 2px;
+}
+.mod-cost.bronze{
+    border-color: #9f7874;
+}
+.mod-cost.silver{
+    border-color: #b4bac9;
+}
+.mod-cost.gold{
+    border-color: #ffedb1;
+}
+.mod-cost.legendary{
+    border-color: white;
 }
 #drain{
     font-size: 14px;
@@ -411,15 +430,26 @@ main{
     bottom: 30px;
     overflow: hidden;
 }
-#mod-name, #mod-effect{
+.mod-name, .mod-effect{
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
-    color: #9f7874;
     text-shadow: 1px 1px 1px black;
     z-index: 500;
 }
-#mod-effect{
+.mod-name.bronze, .mod-effect.bronze{
+    color: #9f7874;
+}
+.mod-name.silver, .mod-effect.silver{
+    color: #b4bac9;
+}
+.mod-name.gold, .mod-effect.gold{
+    color: #ffedb1;
+}
+.mod-name.legendary, .mod-effect.legendary{
+    color: white;
+}
+.mod-effect{
     text-align: center;
     font-size: 15px;
     padding-bottom: 35px;
@@ -440,13 +470,24 @@ main{
     object-fit: cover;
     width: 85%;
 }
-#compatibility-name{
+.compatibility-name{
     position: absolute;
     top: 9px;
     font-size: 12px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
+}
+.compatibility-name.bronze{
     color: #9f7874;
+}
+.compatibility-name.silver{
+    color: #b4bac9;
+}
+.compatibility-name.gold{
+    color: #ffedb1;
+}
+.compatibility-name.legendary{
+    color: white;
 }
 #mod-rank{
     position: absolute;
@@ -482,7 +523,7 @@ main{
 .mod:hover #mod-img{
     filter: brightness(80%);
 }
-.mod:hover #mod-effect{
+.mod:hover .mod-effect{
     display:flex;
 }
 .mod:hover .mod-compatibility{
