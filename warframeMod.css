@@ -314,11 +314,13 @@ main{
     height: 2000px;
 }
 .mod {
-    height: 109px;
+    max-height: 100px;
     display: flex;
     flex-direction: column;
     align-items: center;
     position: relative;
+    transition: 0.1s;
+    overflow: hidden;
 }
 .mod-frame-top, .mod-frame-bottom{
     object-fit: cover;
@@ -331,60 +333,161 @@ main{
 }
 .mod-frame-bottom{
     position: absolute;
-    bottom: 0px;
+    bottom: -16px;
 }
 .mod-top{
     position: relative;
     width: 94%;
     padding-top: 5px;
-    height: 72px;
+    height: 78px;
     overflow: hidden;
     flex-wrap: wrap;
+    z-index: 100;
 }
 .mod-cost{
     display: flex;
-    background-color: rgb(255, 250, 250);
+    background-color: rgb(0, 0, 0);
     position: absolute;
     right: 1px;
-    top: 10px;
+    top: 12px;
     align-items: center;
     justify-content: center;
-    height: 18px;
+    height: 15px;
     border-top-left-radius: 8px;
     border-bottom-left-radius: 8px;
     z-index: 1000;
+    border-left-style: solid;
+    border-top-style: solid;
+    border-bottom-style: solid;
+    border-width: 1px;
+    border-color: #9f7874;
+    padding-left: 2px;
 }
 #drain{
     font-size: 14px;
-    color: rgb(0, 0, 0);
+    color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
 #polarity{
     object-fit: cover;
     height: 16px;
+    filter: invert(1);
 }
 #mod-img{
+    position: absolute;
     object-fit: cover;
     object-position: top;
     width: 100%;
     filter: brightness(30%);
 }
+/* .mod-borders{
+    position: absolute;
+} */
+.border-line1, .border-line2{
+    position: absolute;
+    display: none;
+    z-index: 200;
+    top: 25px;
+}
+.border-line1{
+    left: -4px;
+}
+.border-line2{
+    right: 0;
+}
+
+.mod-background{
+    position: absolute;
+    top: -95px;
+    object-fit: cover;
+    object-position: bottom;
+    width: 106%;
+}
 .mod-bottom{
+    padding-top: 5px;
     width: 94%;
     margin-top: -35px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    /* background-color: bisque; */
+    position: absolute;
+    bottom: 30px;
+    overflow: hidden;
 }
-#mod-name{
+#mod-name, #mod-effect{
     font-size: 17px;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bolder;
     color: #9f7874;
     text-shadow: 1px 1px 1px black;
     z-index: 500;
+}
+#mod-effect{
+    text-align: center;
+    font-size: 15px;
+    font-weight: normal;
+    display: none;
+}
+.mod-compatibility{
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 100;
+    padding-top: 5px;
+    padding-bottom: 10px;
+}
+.diamond{
+    object-fit: cover;
+    width: 85%;
+}
+#compatibility-name{
+    position: absolute;
+    top: 9px;
+    font-size: 12px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: #9f7874;
+}
+#mod-rank{
+    position: absolute;
+    bottom: -5px;
+    color:rgb(142, 241, 241);
+    z-index: 500;
+}
+.mod-rank-line{
+    position: absolute;
+    bottom: 6px;
+    z-index: 500;
+    border-color: rgb(142, 241, 241);
+    width: 60%;
+    margin: 0;
+}
+.mod:hover{
+    max-height: 300px;
+}
+.mod:hover .mod-top{
+    overflow: visible;
+}
+.mod:hover .mod-bottom{
+    bottom: 18px;
+    z-index: 100;
+}
+.mod:hover .border-line1{
+    display: flex;
+}
+.mod:hover .border-line2{
+    display: flex;
+}
+.mod:hover #mod-img{
+    filter: brightness(80%);
+}
+.mod:hover #mod-effect{
+    display:flex;
+}
+.mod:hover .mod-compatibility{
+    display: flex;
 }
 
 @media (max-width: 1163px){
