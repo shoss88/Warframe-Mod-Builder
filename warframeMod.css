@@ -307,11 +307,11 @@ main{
 .mod-section{
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(153, 200px);
+    grid-template-columns: repeat(143, 200px);
     overflow-x: auto;
     overflow-y: hidden;
     column-gap: 20px;
-    height: 350px;
+    height: 330px;
 }
 .mod {
     max-height: 95px;
