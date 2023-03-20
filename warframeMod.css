@@ -307,18 +307,28 @@ main{
 .mod-section{
     margin-top: 10px;
     display: grid;
-    grid-template-columns: repeat(143, 200px);
+    grid-template-columns: repeat(30, 200px);
     overflow-x: auto;
     overflow-y: hidden;
     column-gap: 20px;
-    height: 330px;
+    row-gap: 20px;
+    height: 350px;
+    padding-bottom: 300px;
+}
+.mod-wrap{
+    min-height: 93px;
+    position: relative;
 }
 .mod {
-    max-height: 95px;
+    height: 93px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: absolute;
+    top:0;
+    left:0;
+    right:0;
+    bottom:0;
     transition: 0.1s;
     overflow: hidden;
 }
@@ -404,7 +414,7 @@ main{
     position: absolute;
     display: none;
     z-index: 200;
-    top: 25px;
+    top: 23px;
 }
 .border-line1{
     left: -4px;
@@ -504,7 +514,8 @@ main{
     margin: 0;
 }
 .mod:hover{
-    max-height: 300px;
+    height: 300px;
+    z-index: 700;
 }
 .mod:hover .mod-top{
     overflow: visible;
