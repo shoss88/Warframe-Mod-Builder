@@ -312,7 +312,7 @@ main{
     overflow-y: hidden;
     column-gap: 20px;
     row-gap: 20px;
-    height: 350px;
+    height: 500px;
     padding-bottom: 300px;
 }
 .mod-wrap{
