@@ -1730,6 +1730,8 @@ let warframes = [
         ability4Name: "Tornado"
     }
 ]
+
+// Load up page with correct warframe info
 let warframe = localStorage.getItem("warframe");
 let warframePic = localStorage.getItem("warframe-pic");
 let low = 0
@@ -1769,6 +1771,10 @@ while (low <= high){
     console.log(mid)
 }
 
+
+
+
+// Function section
 let buttons = document.getElementsByClassName("current-polarity");
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", openDropdown);
@@ -1829,4 +1835,23 @@ function updateProgressBar(){
     let remaining = parseInt(document.getElementById("mod-remaining").innerText);
     let percent = (60 - remaining) * 1.67;
     progressBar.style.width = `${percent}%`;
+}
+
+let mods = document.querySelectorAll(".mod-wrap");
+let modSlots = document.querySelectorAll(".mod-slot");
+for (let i = 0; i < mods.length; i++){
+    mods[i].addEventListener("dragstart", () => {
+        mods[i].classList.add("grabbed");
+    })
+    mods[i].addEventListener("dragend", () => {
+        mods[i].classList.remove("grabbed");
+    })
+}
+
+for (let i = 0; i < modSlots.length; i++){
+    modSlots[i].addEventListener("dragover", d =>{
+        d.preventDefault();
+        let grabbed = document.querySelector(".grabbed");
+        modSlots[i].appendChild(grabbed);
+    })
 }

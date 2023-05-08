@@ -245,7 +245,7 @@ main{
 }
 .exilus-slot, .aura-slot{
     width: 200px;
-    height: 80px;
+    min-height: 93px;
     border: solid;
     border-width: 1px;
     border-color: white;
@@ -265,7 +265,7 @@ main{
     row-gap: 90px;
 }
 .mod-slot{
-    height: 80px;
+    height: 93px;
     border: solid;
     border-width: 1px;
     border-color: white;
@@ -319,6 +319,9 @@ main{
     min-height: 93px;
     position: relative;
     cursor: move;
+}
+.mod-wrap.grabbed{
+    opacity: 0.75;
 }
 .mod {
     height: 93px;
