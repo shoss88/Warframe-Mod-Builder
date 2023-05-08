@@ -318,6 +318,7 @@ main{
 .mod-wrap{
     min-height: 93px;
     position: relative;
+    cursor: move;
 }
 .mod {
     height: 93px;
