@@ -525,7 +525,7 @@ let warframes = [
         strength: 100,
         ability1: "/abilityIcons/gyre/GyrePulse.png.webp",
         ability2: "/abilityIcons/gyre/GyreSphere.png.webp",
-        ability3: "/abilityIcons/gyre/GyreEnergized.png.webp",
+        ability3: "/abilityIcons/gyre/GyreEnergised.png.webp",
         ability4: "/abilityIcons/gyre/GyreOvercharged.png.webp",
         ability1Name: "Arcsphere",
         ability2Name: "Coil Horizon",
@@ -1735,7 +1735,7 @@ let warframePic = localStorage.getItem("warframe-pic");
 let low = 0
 let high = warframes.length - 1
 let mid = Math.floor((high + low) / 2)
-while (low < high){
+while (low <= high){
     if ((warframes[mid].name) < warframe){
         low = mid + 1
         mid = Math.floor((high + low) / 2)
@@ -1760,7 +1760,7 @@ while (low < high){
         document.getElementById("efficiency").innerText = warframes[mid].efficiency;
         document.getElementById("range").innerText = warframes[mid].range;
         document.getElementById("strength").innerText = warframes[mid].strength;
-        low = high
+        low = high + 1
     }
     else{
         high = mid - 1
@@ -1768,30 +1768,6 @@ while (low < high){
     }
     console.log(mid)
 }
-// for (let i = 0; i < warframes.length; i++){
-//     if (warframes[i].name === warframe){
-//         document.getElementById("warframe-name").firstElementChild.innerText = warframe;
-//         document.getElementById("warframe-img").src = warframePic;
-//         document.getElementById("health").innerText = warframes[i].health;
-//         document.getElementById("shield").innerText = warframes[i].shield;
-//         document.getElementById("armor").innerText = warframes[i].armor;
-//         document.getElementById("sprintspeed").innerText = warframes[i].sprintSpeed;
-//         document.getElementById("energy").innerText = warframes[i].energy;
-//         document.getElementById("ability-1-img").src = warframes[i].ability1;
-//         document.getElementById("ability-2-img").src = warframes[i].ability2;
-//         document.getElementById("ability-3-img").src = warframes[i].ability3;
-//         document.getElementById("ability-4-img").src = warframes[i].ability4;
-//         document.getElementById("ability-1-name").innerText = warframes[i].ability1Name;
-//         document.getElementById("ability-2-name").innerText = warframes[i].ability2Name;
-//         document.getElementById("ability-3-name").innerText = warframes[i].ability3Name;
-//         document.getElementById("ability-4-name").innerText = warframes[i].ability4Name;
-//         document.getElementById("duration").innerText = warframes[i].duration;
-//         document.getElementById("efficiency").innerText = warframes[i].efficiency;
-//         document.getElementById("range").innerText = warframes[i].range;
-//         document.getElementById("strength").innerText = warframes[i].strength;
-//         i = warframes.length;
-//     }
-// }
 
 let buttons = document.getElementsByClassName("current-polarity");
 for (let i = 0; i < buttons.length; i++){
