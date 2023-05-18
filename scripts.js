@@ -1839,9 +1839,20 @@ function updateProgressBar(){
 
 $(document).ready(function() {
     $(".mod-wrap").draggable({
-        containment: "document",
-        // stack: ".mod-wrap",
+        helper: 'clone',
+        appendTo: 'body',
+        cursorAt: {
+            left: 100,
+            top: 20
+        },
+        start: function (event, ui) {
+            $(this).hide();
+        },
+        stop: function (event, ui) {
+            $(this).show();
+        },
         revert: "invalid",
+        scroll: true,
         revertDuration: 0
     });
 });
