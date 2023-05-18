@@ -1837,21 +1837,30 @@ function updateProgressBar(){
     progressBar.style.width = `${percent}%`;
 }
 
-let mods = document.querySelectorAll(".mod-wrap");
-let modSlots = document.querySelectorAll(".mod-slot");
-for (let i = 0; i < mods.length; i++){
-    mods[i].addEventListener("dragstart", () => {
-        mods[i].classList.add("grabbed");
-    })
-    mods[i].addEventListener("dragend", () => {
-        mods[i].classList.remove("grabbed");
-    })
-}
+$(document).ready(function() {
+    $(".mod-wrap").draggable({
+        containment: "document",
+        // stack: ".mod-wrap",
+        revert: "invalid",
+        revertDuration: 0
+    });
+});
 
-for (let i = 0; i < modSlots.length; i++){
-    modSlots[i].addEventListener("dragover", d =>{
-        d.preventDefault();
-        let grabbed = document.querySelector(".grabbed");
-        modSlots[i].appendChild(grabbed);
-    })
-}
+// let mods = document.querySelectorAll(".mod-wrap");
+// let modSlots = document.querySelectorAll(".mod-slot");
+// for (let i = 0; i < mods.length; i++){
+//     mods[i].addEventListener("dragstart", () => {
+//         mods[i].classList.add("grabbed");
+//     })
+//     mods[i].addEventListener("dragend", () => {
+//         mods[i].classList.remove("grabbed");
+//     })
+// }
+
+// for (let i = 0; i < modSlots.length; i++){
+//     modSlots[i].addEventListener("dragover", d =>{
+//         d.preventDefault();
+//         let grabbed = document.querySelector(".grabbed");
+//         modSlots[i].appendChild(grabbed);
+//     })
+// }

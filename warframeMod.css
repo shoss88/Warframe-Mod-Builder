@@ -292,7 +292,7 @@ main{
     left: 50%;
     margin-left: -50px;
     top: -5px;
-    z-index: 50;
+    z-index: 850;
 }
 .polarity{
     display: flex;
@@ -526,7 +526,7 @@ main{
 }
 .mod:hover .mod-bottom{
     bottom: 18px;
-    min-height: 80px;
+    min-height: 86px;
     z-index: 100;
 }
 .mod:hover .border-line1{
