@@ -1911,8 +1911,9 @@ $(document).ready(function() {
             });
             $("#aura-slot").css("border-color", "#04D004");
             $("#aura-slot").css("background-color", "#375223");
-            $("#exilus-slot").css("border-color", "#04D004");
-            $("#exilus-slot").css("background-color", "#375223");
+            $("#exilus-slot").css("border-color", "#F94E4E");
+            $("#exilus-slot").css("background-color", "#581A1A");
+            $("#aura-img").css("width", "50px");
         },
         deactivate: function(event, ui){
             $(".mod-slot").css("border-color", "white");
@@ -1921,11 +1922,13 @@ $(document).ready(function() {
             $("#aura-slot").css("background-color", "transparent");
             $("#exilus-slot").css("border-color", "white");
             $("#exilus-slot").css("background-color", "transparent");
+            $("#aura-img").css("width", "0px");
         },
         tolerance: "pointer",
         drop: function(event, ui){
             $(this).append(ui.draggable);
             $(this).addClass("contains-mod");
+            $("#aura-img").css("width", "0px");
         }
     });
     $("#exilus-slot").droppable({
@@ -1945,10 +1948,11 @@ $(document).ready(function() {
                     $(this).css("background-color", "#581A1A");
                 }
             });
-            $("#aura-slot").css("border-color", "#04D004");
-            $("#aura-slot").css("background-color", "#375223");
+            $("#aura-slot").css("border-color", "#F94E4E");
+            $("#aura-slot").css("background-color", "#581A1A");
             $("#exilus-slot").css("border-color", "#04D004");
             $("#exilus-slot").css("background-color", "#375223");
+            $("#exilus-img").css("width", "50px");
         },
         deactivate: function(event, ui){
             $(".mod-slot").css("border-color", "white");
@@ -1957,11 +1961,13 @@ $(document).ready(function() {
             $("#aura-slot").css("background-color", "transparent");
             $("#exilus-slot").css("border-color", "white");
             $("#exilus-slot").css("background-color", "transparent");
+            $("#exilus-img").css("width", "0px");
         },
         tolerance: "pointer",
         drop: function(event, ui){
             $(this).append(ui.draggable);
             $(this).addClass("contains-mod");
+            $("#exilus-img").css("width", "0px");
         }
     });
 });
