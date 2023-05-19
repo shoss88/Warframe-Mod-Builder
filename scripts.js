@@ -1847,6 +1847,7 @@ $(document).ready(function() {
         },
         start: function (event, ui) {
             $(this).hide();
+            $(this).parent().removeClass("contains-mod");
         },
         stop: function (event, ui) {
             $(this).show();
@@ -1855,23 +1856,112 @@ $(document).ready(function() {
         scroll: true,
         revertDuration: 0
     });
+    $(".mod-slot").droppable({
+        accept: function(dragged){
+            if ($(this).hasClass("contains-mod")){
+                return false;
+            }
+            else if (dragged.hasClass("mod-wrap") && !dragged.hasClass("exilus") && !dragged.hasClass("aura")){
+                return true;
+            }
+            return false;
+        },
+        activate: function(event, ui){
+            $(".mod-slot").each(function(){
+                if (!$(this).hasClass("contains-mod")){
+                    $(this).css("border-color", "#04D004");
+                    $(this).css("background-color", "#375223");
+                }
+            });
+            $("#aura-slot").css("border-color", "#F94E4E");
+            $("#aura-slot").css("background-color", "#581A1A");
+            $("#exilus-slot").css("border-color", "#F94E4E");
+            $("#exilus-slot").css("background-color", "#581A1A");
+        },
+        deactivate: function(event, ui){
+            $(".mod-slot").css("border-color", "white");
+            $(".mod-slot").css("background-color", "transparent");
+            $("#aura-slot").css("border-color", "white");
+            $("#aura-slot").css("background-color", "transparent");
+            $("#exilus-slot").css("border-color", "white");
+            $("#exilus-slot").css("background-color", "transparent");
+        },
+        tolerance: "pointer",
+        drop: function(event, ui){
+            $(this).append(ui.draggable);
+            $(this).addClass("contains-mod");
+        }
+    });
+    $("#aura-slot").droppable({
+        accept: function(dragged){
+            if ($(this).hasClass("contains-mod")){
+                return false;
+            }
+            else if (dragged.hasClass("mod-wrap") && dragged.hasClass("aura") && !dragged.hasClass("exilus")){
+                return true;
+            }
+            return false;
+        },
+        activate: function(event, ui){
+            $(".mod-slot").each(function(){
+                if (!$(this).hasClass("contains-mod")){
+                    $(this).css("border-color", "#F94E4E");
+                    $(this).css("background-color", "#581A1A");
+                }
+            });
+            $("#aura-slot").css("border-color", "#04D004");
+            $("#aura-slot").css("background-color", "#375223");
+            $("#exilus-slot").css("border-color", "#04D004");
+            $("#exilus-slot").css("background-color", "#375223");
+        },
+        deactivate: function(event, ui){
+            $(".mod-slot").css("border-color", "white");
+            $(".mod-slot").css("background-color", "transparent");
+            $("#aura-slot").css("border-color", "white");
+            $("#aura-slot").css("background-color", "transparent");
+            $("#exilus-slot").css("border-color", "white");
+            $("#exilus-slot").css("background-color", "transparent");
+        },
+        tolerance: "pointer",
+        drop: function(event, ui){
+            $(this).append(ui.draggable);
+            $(this).addClass("contains-mod");
+        }
+    });
+    $("#exilus-slot").droppable({
+        accept: function(dragged){
+            if ($(this).hasClass("contains-mod")){
+                return false;
+            }
+            else if (dragged.hasClass("mod-wrap") && dragged.hasClass("exilus") && !dragged.hasClass("aura")){
+                return true;
+            }
+            return false;
+        },
+        activate: function(event, ui){
+            $(".mod-slot").each(function(){
+                if (!$(this).hasClass("contains-mod")){
+                    $(this).css("border-color", "#F94E4E");
+                    $(this).css("background-color", "#581A1A");
+                }
+            });
+            $("#aura-slot").css("border-color", "#04D004");
+            $("#aura-slot").css("background-color", "#375223");
+            $("#exilus-slot").css("border-color", "#04D004");
+            $("#exilus-slot").css("background-color", "#375223");
+        },
+        deactivate: function(event, ui){
+            $(".mod-slot").css("border-color", "white");
+            $(".mod-slot").css("background-color", "transparent");
+            $("#aura-slot").css("border-color", "white");
+            $("#aura-slot").css("background-color", "transparent");
+            $("#exilus-slot").css("border-color", "white");
+            $("#exilus-slot").css("background-color", "transparent");
+        },
+        tolerance: "pointer",
+        drop: function(event, ui){
+            $(this).append(ui.draggable);
+            $(this).addClass("contains-mod");
+        }
+    });
 });
-
-// let mods = document.querySelectorAll(".mod-wrap");
-// let modSlots = document.querySelectorAll(".mod-slot");
-// for (let i = 0; i < mods.length; i++){
-//     mods[i].addEventListener("dragstart", () => {
-//         mods[i].classList.add("grabbed");
-//     })
-//     mods[i].addEventListener("dragend", () => {
-//         mods[i].classList.remove("grabbed");
-//     })
-// }
-
-// for (let i = 0; i < modSlots.length; i++){
-//     modSlots[i].addEventListener("dragover", d =>{
-//         d.preventDefault();
-//         let grabbed = document.querySelector(".grabbed");
-//         modSlots[i].appendChild(grabbed);
-//     })
-// }
