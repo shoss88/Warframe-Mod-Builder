@@ -1848,11 +1848,84 @@ $(document).ready(function() {
         start: function (event, ui) {
             $(this).hide();
             $(this).parent().removeClass("contains-mod");
+            if ($(this).hasClass("mod-wrap") && !$(this).hasClass("exilus") && !$(this).hasClass("aura")){
+                $(".mod-slot").each(function(){
+                    if (!$(this).hasClass("contains-mod")){
+                        $(this).css("border-color", "#04D004");
+                        $(this).css("background-color", "#375223");
+                    }
+                });
+                if (!$("#aura-slot").hasClass("contains-mod")){
+                    $("#aura-slot").css("border-color", "#F94E4E");
+                    $("#aura-slot").css("background-color", "#581A1A");
+                }
+                if (!$("#exilus-slot").hasClass("contains-mod")){
+                    $("#exilus-slot").css("border-color", "#F94E4E");
+                    $("#exilus-slot").css("background-color", "#581A1A");
+                }
+            }
+            else if ($(this).hasClass("mod-wrap") && $(this).hasClass("aura") && !$(this).hasClass("exilus")){
+                $(".mod-slot").each(function(){
+                    if (!$(this).hasClass("contains-mod")){
+                        $(this).css("border-color", "#F94E4E");
+                        $(this).css("background-color", "#581A1A");
+                    }
+                });
+                if (!$("#aura-slot").hasClass("contains-mod")){
+                    $("#aura-slot").css("border-color", "#04D004");
+                    $("#aura-slot").css("background-color", "#375223");
+                }
+                if (!$("#exilus-slot").hasClass("contains-mod")){
+                    $("#exilus-slot").css("border-color", "#F94E4E");
+                    $("#exilus-slot").css("background-color", "#581A1A");
+                }
+                if ($(this).parent().is("#aura-slot")){
+                    $("#aura-img").css("width", "50px");
+                }
+            }
+            else if ($(this).hasClass("mod-wrap") && $(this).hasClass("exilus") && !$(this).hasClass("aura")){
+                $(".mod-slot").each(function(){
+                    if (!$(this).hasClass("contains-mod")){
+                        $(this).css("border-color", "#F94E4E");
+                        $(this).css("background-color", "#581A1A");
+                    }
+                });
+                if (!$("#aura-slot").hasClass("contains-mod")){
+                    $("#aura-slot").css("border-color", "#F94E4E");
+                    $("#aura-slot").css("background-color", "#581A1A");
+                }
+                if (!$("#exilus-slot").hasClass("contains-mod")){
+                    $("#exilus-slot").css("border-color", "#04D004");
+                    $("#exilus-slot").css("background-color", "#375223");
+                }
+                if ($(this).parent().is("#exilus-slot")){
+                    $("#exilus-img").css("width", "50px");
+                }
+            }
         },
         stop: function (event, ui) {
             $(this).show();
         },
-        revert: "invalid",
+        revert: function(){
+            if ($(this).parent().hasClass("mod-slot")){
+                $(this).parent().addClass("contains-mod");
+            }
+            else if ($(this).parent().is("#aura-slot")){
+                $("#aura-img").css("width", "0px");
+                $(this).parent().addClass("contains-mod");
+            }
+            else if ($(this).parent().is("#exilus-slot")){
+                $("#exilus-img").css("width", "0px");
+                $(this).parent().addClass("contains-mod");
+            }
+            $(".mod-slot").css("border-color", "white");
+            $(".mod-slot").css("background-color", "transparent");
+            $("#aura-slot").css("border-color", "white");
+            $("#aura-slot").css("background-color", "transparent");
+            $("#exilus-slot").css("border-color", "white");
+            $("#exilus-slot").css("background-color", "transparent");
+            return true;
+        },
         scroll: true,
         revertDuration: 0
     });
@@ -1865,26 +1938,6 @@ $(document).ready(function() {
                 return true;
             }
             return false;
-        },
-        activate: function(event, ui){
-            $(".mod-slot").each(function(){
-                if (!$(this).hasClass("contains-mod")){
-                    $(this).css("border-color", "#04D004");
-                    $(this).css("background-color", "#375223");
-                }
-            });
-            $("#aura-slot").css("border-color", "#F94E4E");
-            $("#aura-slot").css("background-color", "#581A1A");
-            $("#exilus-slot").css("border-color", "#F94E4E");
-            $("#exilus-slot").css("background-color", "#581A1A");
-        },
-        deactivate: function(event, ui){
-            $(".mod-slot").css("border-color", "white");
-            $(".mod-slot").css("background-color", "transparent");
-            $("#aura-slot").css("border-color", "white");
-            $("#aura-slot").css("background-color", "transparent");
-            $("#exilus-slot").css("border-color", "white");
-            $("#exilus-slot").css("background-color", "transparent");
         },
         tolerance: "pointer",
         drop: function(event, ui){
@@ -1902,28 +1955,6 @@ $(document).ready(function() {
             }
             return false;
         },
-        activate: function(event, ui){
-            $(".mod-slot").each(function(){
-                if (!$(this).hasClass("contains-mod")){
-                    $(this).css("border-color", "#F94E4E");
-                    $(this).css("background-color", "#581A1A");
-                }
-            });
-            $("#aura-slot").css("border-color", "#04D004");
-            $("#aura-slot").css("background-color", "#375223");
-            $("#exilus-slot").css("border-color", "#F94E4E");
-            $("#exilus-slot").css("background-color", "#581A1A");
-            $("#aura-img").css("width", "50px");
-        },
-        deactivate: function(event, ui){
-            $(".mod-slot").css("border-color", "white");
-            $(".mod-slot").css("background-color", "transparent");
-            $("#aura-slot").css("border-color", "white");
-            $("#aura-slot").css("background-color", "transparent");
-            $("#exilus-slot").css("border-color", "white");
-            $("#exilus-slot").css("background-color", "transparent");
-            $("#aura-img").css("width", "0px");
-        },
         tolerance: "pointer",
         drop: function(event, ui){
             $(this).append(ui.draggable);
@@ -1940,28 +1971,6 @@ $(document).ready(function() {
                 return true;
             }
             return false;
-        },
-        activate: function(event, ui){
-            $(".mod-slot").each(function(){
-                if (!$(this).hasClass("contains-mod")){
-                    $(this).css("border-color", "#F94E4E");
-                    $(this).css("background-color", "#581A1A");
-                }
-            });
-            $("#aura-slot").css("border-color", "#F94E4E");
-            $("#aura-slot").css("background-color", "#581A1A");
-            $("#exilus-slot").css("border-color", "#04D004");
-            $("#exilus-slot").css("background-color", "#375223");
-            $("#exilus-img").css("width", "50px");
-        },
-        deactivate: function(event, ui){
-            $(".mod-slot").css("border-color", "white");
-            $(".mod-slot").css("background-color", "transparent");
-            $("#aura-slot").css("border-color", "white");
-            $("#aura-slot").css("background-color", "transparent");
-            $("#exilus-slot").css("border-color", "white");
-            $("#exilus-slot").css("background-color", "transparent");
-            $("#exilus-img").css("width", "0px");
         },
         tolerance: "pointer",
         drop: function(event, ui){
