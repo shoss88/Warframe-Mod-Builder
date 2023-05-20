@@ -40,6 +40,7 @@ header{
     text-decoration: none;
     padding-left: 20px;
     padding-right: 20px;
+    transition: color 0.2s, background-color 0.2s;
 }
 .name:hover{
     background-color: rgb(102, 175, 218);
