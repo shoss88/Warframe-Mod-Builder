@@ -304,7 +304,7 @@ main{
     border-width: 1px;
     margin-top: -1px;
 }
-.mod-section{
+#mod-section{
     margin-top: 10px;
     display: grid;
     grid-template-columns: repeat(30, 200px);

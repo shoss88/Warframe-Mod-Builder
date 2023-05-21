@@ -1836,9 +1836,44 @@ function updateProgressBar(){
     let percent = (60 - remaining) * 1.67;
     progressBar.style.width = `${percent}%`;
 }
-let mods;
+
 $(document).ready(function() {
-    mods = $(".mod-wrap").draggable({
+    function sortGrid(){
+        let grid = $("#mod-section");
+        let allMods = $("#mod-section").children().get();
+        let sortedMods = allMods.sort(function(a, b){
+            let nameA = $(a).find(".mod-name").text();
+            let nameB = $(b).find(".mod-name").text();
+            return (nameA > nameB) ? 1 : (nameA < nameB) ? -1 : 0;
+        });
+        grid.append(sortedMods);
+    }
+    sortGrid();
+    $(".mod-slot").bind("contextmenu", function(e) {
+        return false;
+    });
+    $("#exilus-slot").bind("contextmenu", function(e) {
+        return false;
+    });
+    $("#aura-slot").bind("contextmenu", function(e) {
+        return false;
+    });
+    $(".mod-wrap").mousedown(function(event){
+        if (event.which == 3){
+            if (!$(this).parent().is("#mod-section")){
+                $(this).parent().removeClass("contains-mod");
+                if ($(this).parent().is("#aura-slot")){
+                    $("#aura-img").css("width", "50px");
+                }
+                else if ($(this).parent().is("#exilus-slot")){
+                    $("#exilus-img").css("width", "50px");
+                }
+                $(this).appendTo("#mod-section");
+            }
+            sortGrid();
+        }
+    });
+    $(".mod-wrap").draggable({
         helper: 'clone',
         appendTo: 'body',
         cursorAt: {
