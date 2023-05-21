@@ -1836,9 +1836,9 @@ function updateProgressBar(){
     let percent = (60 - remaining) * 1.67;
     progressBar.style.width = `${percent}%`;
 }
-
+let mods;
 $(document).ready(function() {
-    $(".mod-wrap").draggable({
+    mods = $(".mod-wrap").draggable({
         helper: 'clone',
         appendTo: 'body',
         cursorAt: {
