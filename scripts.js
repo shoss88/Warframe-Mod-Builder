@@ -1848,7 +1848,6 @@ $(document).ready(function() {
         });
         grid.append(sortedMods);
     }
-    sortGrid();
     $(".mod-slot").bind("contextmenu", function(e) {
         return false;
     });
