@@ -294,7 +294,7 @@ main{
     top: -5px;
     z-index: 850;
 }
-.polarity{
+.polarity-button{
     display: flex;
     align-items: center;
     justify-content: center;
@@ -397,18 +397,18 @@ main{
 .mod-cost.legendary{
     border-color: white;
 }
-#drain{
+.drain{
     font-size: 14px;
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     font-weight: bold;
 }
-#polarity{
+.polarity{
     object-fit: cover;
     height: 16px;
     filter: invert(1);
 }
-#mod-img{
+.mod-img{
     position: absolute;
     object-fit: cover;
     object-position: top;
@@ -504,7 +504,7 @@ main{
 .compatibility-name.legendary{
     color: white;
 }
-#mod-rank{
+.mod-rank{
     position: absolute;
     bottom: -5px;
     color:rgb(142, 241, 241);

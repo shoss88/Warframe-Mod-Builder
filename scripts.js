@@ -1768,11 +1768,7 @@ while (low <= high){
         high = mid - 1
         mid = Math.floor((high + low) / 2)
     }
-    console.log(mid)
 }
-
-
-
 
 // Function section
 let buttons = document.getElementsByClassName("current-polarity");
@@ -1789,7 +1785,7 @@ function openDropdown(obj){
     }
 }
 
-let polarities = document.getElementsByClassName("polarity");
+let polarities = document.getElementsByClassName("polarity-button");
 for (let i = 0; i < polarities.length; i++){
     polarities[i].addEventListener("click", changeCurrentPolarity);
 }
@@ -1798,42 +1794,42 @@ function changeCurrentPolarity(obj){
     let polarityImage = polarity.firstElementChild.src;
     let dropdown = polarity.parentElement;
     let currentPolarity = dropdown.previousElementSibling;
-    console.log(currentPolarity.innerText);
     if (polarityImage === undefined){
         if (currentPolarity.innerText !== "--"){
             updateFormaCount(false);
         }
         currentPolarity.innerHTML = "";
         currentPolarity.appendChild(document.createElement('p'));
-        currentPolarity.firstElementChild.innerHTML = "--";
+        currentPolarity.firstElementChild.innerText = "--";
     }
     else{
         if (currentPolarity.innerText === "--"){
             updateFormaCount(true);
         }
         currentPolarity.innerHTML = "";
-        currentPolarity.appendChild(document.createElement('img')).src 
-        = polarityImage;
+        currentPolarity.appendChild(document.createElement('img'));
+        currentPolarity.firstElementChild.src = polarityImage;
     }
     dropdown.style.display = "none";
 }
 
 function updateFormaCount(add){
     let formaCount = document.getElementById("forma-count");
-    let originalCount = parseInt(formaCount.innerHTML);
-    formaCount.innerHTML = "";
+    let originalCount = parseInt(formaCount.innerText);
+    formaCount.innerText = "";
     if (add === true){
-        formaCount.innerHTML = originalCount + 1;
+        formaCount.innerText = originalCount + 1;
     }
     else{
-        formaCount.innerHTML = originalCount - 1;
+        formaCount.innerText = originalCount - 1;
     }
 }
 
 function updateProgressBar(){
     let progressBar = document.getElementById("progress-filled");
     let remaining = parseInt(document.getElementById("mod-remaining").innerText);
-    let percent = (60 - remaining) * 1.67;
+    let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+    let percent = (max - remaining) * 1.67;
     progressBar.style.width = `${percent}%`;
 }
 
@@ -1847,6 +1843,43 @@ $(document).ready(function() {
             return (nameA > nameB) ? 1 : (nameA < nameB) ? -1 : 0;
         });
         grid.append(sortedMods);
+    }
+    function fixCurrentCapacity(mod, decreaseSpace){
+        if (decreaseSpace == true){
+            let remaining = parseInt($("#mod-remaining").text());
+            let modCost = parseInt(mod.find(".drain").text());
+            let newRemaining = remaining - modCost;
+            $("#mod-remaining").text(newRemaining);
+            updateProgressBar();
+        }
+        else{
+            let remaining = parseInt($("#mod-remaining").text());
+            let modCost = parseInt(mod.find(".drain").text());
+            let newRemaining = remaining + modCost;
+            $("#mod-remaining").text(newRemaining);
+            updateProgressBar();
+        }
+    }
+    function fixMaxCapacity(mod, increaseSpace){
+        if (increaseSpace == true){
+            let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+            let modCost = parseInt(mod.find(".drain").text());
+            let newMax = max + modCost;
+            console.log(newMax);
+            $("#mod-total").text(`\u00A0/ ${newMax}`);
+            let remaining = parseInt($("#mod-remaining").text());
+            let newRemaining = remaining + modCost;
+            $("#mod-remaining").text(newRemaining);
+        }
+        else{
+            let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+            let modCost = parseInt(mod.find(".drain").text());
+            let newMax = max - modCost;
+            $("#mod-total").text(`\u00A0/ ${newMax}`);
+            let remaining = parseInt($("#mod-remaining").text());
+            let newRemaining = remaining - modCost;
+            $("#mod-remaining").text(newRemaining);
+        }
     }
     $(".mod-slot").bind("contextmenu", function(e) {
         return false;
@@ -1866,6 +1899,12 @@ $(document).ready(function() {
                 }
                 else if ($(this).parent().is("#exilus-slot")){
                     $("#exilus-img").css("width", "50px");
+                }
+                if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
+                    fixCurrentCapacity($(this), false);
+                }
+                else if ($(this).parent().is("#aura-slot")){
+                    fixMaxCapacity($(this), false);
                 }
                 $(this).appendTo("#mod-section");
             }
@@ -1936,9 +1975,21 @@ $(document).ready(function() {
                     $("#exilus-img").css("width", "50px");
                 }
             }
+            if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
+                fixCurrentCapacity($(this), false);
+            }
+            else if ($(this).parent().is("#aura-slot")){
+                fixMaxCapacity($(this), false);
+            }
         },
         stop: function (event, ui) {
             $(this).show();
+            if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
+                fixCurrentCapacity($(this), true);
+            }
+            else if ($(this).parent().is("#aura-slot")){
+                fixMaxCapacity($(this), true);
+            }
         },
         revert: function(){
             if ($(this).parent().hasClass("mod-slot")){
