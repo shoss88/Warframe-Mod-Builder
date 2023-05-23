@@ -6,7 +6,8 @@ for (let i = 0; i < boxes.length; i++){
 function saveName(obj){
     let box = obj.currentTarget;
     let text = box.firstElementChild.lastElementChild.innerText;
-    let pic = box.firstElementChild.firstElementChild.src;
+    let pic = box.firstElementChild.firstElementChild.getAttribute("src");
+    console.log(pic);
     localStorage.setItem("warframe", text);
     localStorage.setItem("warframe-pic", pic);
 }

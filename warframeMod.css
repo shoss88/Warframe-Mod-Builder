@@ -536,7 +536,7 @@ main{
 .mod:hover .border-line2{
     display: flex;
 }
-.mod:hover #mod-img{
+.mod:hover .mod-img{
     filter: brightness(80%);
 }
 .mod:hover .mod-effect{

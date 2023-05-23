@@ -1744,16 +1744,16 @@ while (low <= high){
     }
     else if ((warframes[mid].name) === warframe){
         document.getElementById("warframe-name").firstElementChild.innerText = warframe;
-        document.getElementById("warframe-img").src = warframePic;
+        document.getElementById("warframe-img").setAttribute("src", warframePic);
         document.getElementById("health").innerText = warframes[mid].health;
         document.getElementById("shield").innerText = warframes[mid].shield;
         document.getElementById("armor").innerText = warframes[mid].armor;
         document.getElementById("sprintspeed").innerText = warframes[mid].sprintSpeed;
         document.getElementById("energy").innerText = warframes[mid].energy;
-        document.getElementById("ability-1-img").src = warframes[mid].ability1;
-        document.getElementById("ability-2-img").src = warframes[mid].ability2;
-        document.getElementById("ability-3-img").src = warframes[mid].ability3;
-        document.getElementById("ability-4-img").src = warframes[mid].ability4;
+        document.getElementById("ability-1-img").setAttribute("src", warframes[mid].ability1);
+        document.getElementById("ability-2-img").setAttribute("src", warframes[mid].ability2);
+        document.getElementById("ability-3-img").setAttribute("src", warframes[mid].ability3);
+        document.getElementById("ability-4-img").setAttribute("src", warframes[mid].ability4);
         document.getElementById("ability-1-name").innerText = warframes[mid].ability1Name;
         document.getElementById("ability-2-name").innerText = warframes[mid].ability2Name;
         document.getElementById("ability-3-name").innerText = warframes[mid].ability3Name;
@@ -1791,10 +1791,10 @@ for (let i = 0; i < polarities.length; i++){
 }
 function changeCurrentPolarity(obj){
     let polarity = obj.currentTarget;
-    let polarityImage = polarity.firstElementChild.src;
+    let polarityImage = polarity.firstElementChild.getAttribute("src");
     let dropdown = polarity.parentElement;
     let currentPolarity = dropdown.previousElementSibling;
-    if (polarityImage === undefined){
+    if (polarityImage === null){
         if (currentPolarity.innerText !== "--"){
             updateFormaCount(false);
         }
@@ -1808,7 +1808,7 @@ function changeCurrentPolarity(obj){
         }
         currentPolarity.innerHTML = "";
         currentPolarity.appendChild(document.createElement('img'));
-        currentPolarity.firstElementChild.src = polarityImage;
+        currentPolarity.firstElementChild.setAttribute("src", polarityImage);
     }
     dropdown.style.display = "none";
 }
@@ -1843,26 +1843,49 @@ function sortGrid(){
     });
     grid.append(sortedMods);
 }
+function polarized(mod){
+    let currentPolarityImg = mod.parent().find(".current-polarity img").attr("src");
+    let modPolarityImg = mod.find(".polarity").attr("src");
+    if (currentPolarityImg === undefined){
+        return 0
+    }
+    else if (modPolarityImg === currentPolarityImg){
+        return 1;
+    }
+    else{
+        return -1;
+    }
+}
 function fixCurrentCapacity(mod, decreaseSpace){
+    let remaining = parseInt($("#mod-remaining").text());
+    let modCost = parseInt(mod.find(".drain").text());
+    if (polarized(mod) === -1){
+        modCost = Math.floor(modCost * 1.25);
+    }
+    else if (polarized(mod) === 1){
+        modCost = Math.floor(modCost * 0.5);
+    }
     if (decreaseSpace == true){
-        let remaining = parseInt($("#mod-remaining").text());
-        let modCost = parseInt(mod.find(".drain").text());
         let newRemaining = remaining - modCost;
         $("#mod-remaining").text(newRemaining);
         updateProgressBar();
     }
     else{
-        let remaining = parseInt($("#mod-remaining").text());
-        let modCost = parseInt(mod.find(".drain").text());
         let newRemaining = remaining + modCost;
         $("#mod-remaining").text(newRemaining);
         updateProgressBar();
     }
 }
 function fixMaxCapacity(mod, increaseSpace){
+    let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+    let modCost = parseInt(mod.find(".drain").text());
+    if (polarized(mod) === -1){
+        modCost = Math.floor(modCost * 0.8);
+    }
+    else if (polarized(mod) === 1){
+        modCost = Math.floor(modCost * 2);
+    }
     if (increaseSpace == true){
-        let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
-        let modCost = parseInt(mod.find(".drain").text());
         let newMax = max + modCost;
         $("#mod-total").text(`\u00A0/ ${newMax}`);
         let remaining = parseInt($("#mod-remaining").text());
@@ -1870,8 +1893,6 @@ function fixMaxCapacity(mod, increaseSpace){
         $("#mod-remaining").text(newRemaining);
     }
     else{
-        let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
-        let modCost = parseInt(mod.find(".drain").text());
         let newMax = max - modCost;
         $("#mod-total").text(`\u00A0/ ${newMax}`);
         let remaining = parseInt($("#mod-remaining").text());
@@ -1883,13 +1904,6 @@ function overCapacity(mod){
     let modCost = parseInt(mod.find(".drain").text());
     let remaining = parseInt($("#mod-remaining").text());
     return (remaining - modCost) < 0;
-}
-
-function polarized(mod){
-// return -1 for neg, 0 for neutral, and 1 for positive
-// attach this to the stop action in each draggable and check for 
-// viability with overcapacity at every accept option in each droppable.
-// may need to add a new parameter to fixMaxCapacity
 }
 
 $(document).ready(function() {
