@@ -1865,7 +1865,6 @@ $(document).ready(function() {
             let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
             let modCost = parseInt(mod.find(".drain").text());
             let newMax = max + modCost;
-            console.log(newMax);
             $("#mod-total").text(`\u00A0/ ${newMax}`);
             let remaining = parseInt($("#mod-remaining").text());
             let newRemaining = remaining + modCost;
@@ -1881,6 +1880,11 @@ $(document).ready(function() {
             $("#mod-remaining").text(newRemaining);
         }
     }
+    function overCapacity(mod){
+        let modCost = parseInt(mod.find(".drain").text());
+        let remaining = parseInt($("#mod-remaining").text());
+        return (remaining - modCost) < 0;
+    }
     $(".mod-slot").bind("contextmenu", function(e) {
         return false;
     });
@@ -1894,19 +1898,25 @@ $(document).ready(function() {
         if (event.which == 3){
             if (!$(this).parent().is("#mod-section")){
                 $(this).parent().removeClass("contains-mod");
-                if ($(this).parent().is("#aura-slot")){
-                    $("#aura-img").css("width", "50px");
-                }
-                else if ($(this).parent().is("#exilus-slot")){
-                    $("#exilus-img").css("width", "50px");
-                }
                 if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
                     fixCurrentCapacity($(this), false);
+                    if ($(this).parent().is("#exilus-slot")){
+                        $("#exilus-img").css("width", "50px");
+                    }
+                    $(this).appendTo("#mod-section");
                 }
                 else if ($(this).parent().is("#aura-slot")){
-                    fixMaxCapacity($(this), false);
+                    let modCost = parseInt($(this).find(".drain").text());
+                    let remaining = parseInt($("#mod-remaining").text());
+                    if (remaining - modCost < 0){
+                        alert("Cannot remove this mod because there won't be enough mod capacity left.");
+                    }
+                    else{
+                        $("#aura-img").css("width", "50px");
+                        fixMaxCapacity($(this), false);
+                        $(this).appendTo("#mod-section");
+                    }
                 }
-                $(this).appendTo("#mod-section");
             }
             sortGrid();
         }
@@ -2020,6 +2030,9 @@ $(document).ready(function() {
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && !dragged.hasClass("exilus") && !dragged.hasClass("aura")){
+                if (overCapacity(dragged)){
+                    return false;
+                }
                 return true;
             }
             return false;
@@ -2053,6 +2066,9 @@ $(document).ready(function() {
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && dragged.hasClass("exilus") && !dragged.hasClass("aura")){
+                if (overCapacity(dragged)){
+                    return false;
+                }
                 return true;
             }
             return false;
