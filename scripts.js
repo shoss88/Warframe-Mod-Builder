@@ -1833,58 +1833,66 @@ function updateProgressBar(){
     progressBar.style.width = `${percent}%`;
 }
 
-$(document).ready(function() {
-    function sortGrid(){
-        let grid = $("#mod-section");
-        let allMods = $("#mod-section").children().get();
-        let sortedMods = allMods.sort(function(a, b){
-            let nameA = $(a).find(".mod-name").text();
-            let nameB = $(b).find(".mod-name").text();
-            return (nameA > nameB) ? 1 : (nameA < nameB) ? -1 : 0;
-        });
-        grid.append(sortedMods);
-    }
-    function fixCurrentCapacity(mod, decreaseSpace){
-        if (decreaseSpace == true){
-            let remaining = parseInt($("#mod-remaining").text());
-            let modCost = parseInt(mod.find(".drain").text());
-            let newRemaining = remaining - modCost;
-            $("#mod-remaining").text(newRemaining);
-            updateProgressBar();
-        }
-        else{
-            let remaining = parseInt($("#mod-remaining").text());
-            let modCost = parseInt(mod.find(".drain").text());
-            let newRemaining = remaining + modCost;
-            $("#mod-remaining").text(newRemaining);
-            updateProgressBar();
-        }
-    }
-    function fixMaxCapacity(mod, increaseSpace){
-        if (increaseSpace == true){
-            let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
-            let modCost = parseInt(mod.find(".drain").text());
-            let newMax = max + modCost;
-            $("#mod-total").text(`\u00A0/ ${newMax}`);
-            let remaining = parseInt($("#mod-remaining").text());
-            let newRemaining = remaining + modCost;
-            $("#mod-remaining").text(newRemaining);
-        }
-        else{
-            let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
-            let modCost = parseInt(mod.find(".drain").text());
-            let newMax = max - modCost;
-            $("#mod-total").text(`\u00A0/ ${newMax}`);
-            let remaining = parseInt($("#mod-remaining").text());
-            let newRemaining = remaining - modCost;
-            $("#mod-remaining").text(newRemaining);
-        }
-    }
-    function overCapacity(mod){
-        let modCost = parseInt(mod.find(".drain").text());
+function sortGrid(){
+    let grid = $("#mod-section");
+    let allMods = $("#mod-section").children().get();
+    let sortedMods = allMods.sort(function(a, b){
+        let nameA = $(a).find(".mod-name").text();
+        let nameB = $(b).find(".mod-name").text();
+        return (nameA > nameB) ? 1 : (nameA < nameB) ? -1 : 0;
+    });
+    grid.append(sortedMods);
+}
+function fixCurrentCapacity(mod, decreaseSpace){
+    if (decreaseSpace == true){
         let remaining = parseInt($("#mod-remaining").text());
-        return (remaining - modCost) < 0;
+        let modCost = parseInt(mod.find(".drain").text());
+        let newRemaining = remaining - modCost;
+        $("#mod-remaining").text(newRemaining);
+        updateProgressBar();
     }
+    else{
+        let remaining = parseInt($("#mod-remaining").text());
+        let modCost = parseInt(mod.find(".drain").text());
+        let newRemaining = remaining + modCost;
+        $("#mod-remaining").text(newRemaining);
+        updateProgressBar();
+    }
+}
+function fixMaxCapacity(mod, increaseSpace){
+    if (increaseSpace == true){
+        let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+        let modCost = parseInt(mod.find(".drain").text());
+        let newMax = max + modCost;
+        $("#mod-total").text(`\u00A0/ ${newMax}`);
+        let remaining = parseInt($("#mod-remaining").text());
+        let newRemaining = remaining + modCost;
+        $("#mod-remaining").text(newRemaining);
+    }
+    else{
+        let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+        let modCost = parseInt(mod.find(".drain").text());
+        let newMax = max - modCost;
+        $("#mod-total").text(`\u00A0/ ${newMax}`);
+        let remaining = parseInt($("#mod-remaining").text());
+        let newRemaining = remaining - modCost;
+        $("#mod-remaining").text(newRemaining);
+    }
+}
+function overCapacity(mod){
+    let modCost = parseInt(mod.find(".drain").text());
+    let remaining = parseInt($("#mod-remaining").text());
+    return (remaining - modCost) < 0;
+}
+
+function polarized(mod){
+// return -1 for neg, 0 for neutral, and 1 for positive
+// attach this to the stop action in each draggable and check for 
+// viability with overcapacity at every accept option in each droppable.
+// may need to add a new parameter to fixMaxCapacity
+}
+
+$(document).ready(function() {
     $(".mod-slot").bind("contextmenu", function(e) {
         return false;
     });
