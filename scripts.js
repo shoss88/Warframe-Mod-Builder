@@ -1843,8 +1843,8 @@ function sortGrid(){
     });
     grid.append(sortedMods);
 }
-function polarized(mod){
-    let currentPolarityImg = mod.parent().find(".current-polarity img").attr("src");
+function polarized(mod, modSlot){
+    let currentPolarityImg = modSlot.find(".current-polarity img").attr("src");
     let modPolarityImg = mod.find(".polarity").attr("src");
     if (currentPolarityImg === undefined){
         return 0
@@ -1859,10 +1859,10 @@ function polarized(mod){
 function fixCurrentCapacity(mod, decreaseSpace){
     let remaining = parseInt($("#mod-remaining").text());
     let modCost = parseInt(mod.find(".drain").text());
-    if (polarized(mod) === -1){
+    if (polarized(mod, mod.parent()) === -1){
         modCost = Math.floor(modCost * 1.25);
     }
-    else if (polarized(mod) === 1){
+    else if (polarized(mod, mod.parent()) === 1){
         modCost = Math.floor(modCost * 0.5);
     }
     if (decreaseSpace == true){
@@ -1879,10 +1879,10 @@ function fixCurrentCapacity(mod, decreaseSpace){
 function fixMaxCapacity(mod, increaseSpace){
     let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
     let modCost = parseInt(mod.find(".drain").text());
-    if (polarized(mod) === -1){
+    if (polarized(mod, mod.parent()) === -1){
         modCost = Math.floor(modCost * 0.8);
     }
-    else if (polarized(mod) === 1){
+    else if (polarized(mod, mod.parent()) === 1){
         modCost = Math.floor(modCost * 2);
     }
     if (increaseSpace == true){
@@ -1900,9 +1900,15 @@ function fixMaxCapacity(mod, increaseSpace){
         $("#mod-remaining").text(newRemaining);
     }
 }
-function overCapacity(mod){
+function overCapacity(mod, modSlot){
     let modCost = parseInt(mod.find(".drain").text());
     let remaining = parseInt($("#mod-remaining").text());
+    if (polarized(mod, modSlot) === -1){
+        modCost = Math.floor(modCost * 1.25);
+    }
+    else if (polarized(mod, modSlot) === 1){
+        modCost = Math.floor(modCost * 0.5);
+    }
     return (remaining - modCost) < 0;
 }
 
@@ -1954,10 +1960,23 @@ $(document).ready(function() {
             $(this).hide();
             $(this).parent().removeClass("contains-mod");
             if ($(this).hasClass("mod-wrap") && !$(this).hasClass("exilus") && !$(this).hasClass("aura")){
+                let mod = $(this);
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
-                        $(this).css("border-color", "#04D004");
-                        $(this).css("background-color", "#375223");
+                        let modSlotPolarityImg = $(this).find(".current-polarity img").attr("src");
+                        let modPolarityImg = mod.find(".polarity").attr("src");
+                        if (modSlotPolarityImg === undefined){
+                            $(this).css("border-color", "#04D004");
+                            $(this).css("background-color", "#375223");
+                        }
+                        else if (modSlotPolarityImg != modPolarityImg){
+                            $(this).css("border-color", "#E7A268");
+                            $(this).css("background-color", "#995100");
+                        }
+                        else{
+                            $(this).css("border-color", "#688EF3");
+                            $(this).css("background-color", "#004799");
+                        }
                     }
                 });
                 if (!$("#aura-slot").hasClass("contains-mod")){
@@ -1976,9 +1995,22 @@ $(document).ready(function() {
                         $(this).css("background-color", "#581A1A");
                     }
                 });
+                let mod = $(this);
                 if (!$("#aura-slot").hasClass("contains-mod")){
-                    $("#aura-slot").css("border-color", "#04D004");
-                    $("#aura-slot").css("background-color", "#375223");
+                    let modSlotPolarityImg = $("#aura-slot").find(".current-polarity img").attr("src");
+                    let modPolarityImg = mod.find(".polarity").attr("src");
+                    if (modSlotPolarityImg === undefined){
+                        $("#aura-slot").css("border-color", "#04D004");
+                        $("#aura-slot").css("background-color", "#375223");
+                    }
+                    else if (modSlotPolarityImg != modPolarityImg){
+                        $("#aura-slot").css("border-color", "#E7A268");
+                        $("#aura-slot").css("background-color", "#995100");
+                    }
+                    else{
+                        $("#aura-slot").css("border-color", "#688EF3");
+                        $("#aura-slot").css("background-color", "#004799");
+                    }
                 }
                 if (!$("#exilus-slot").hasClass("contains-mod")){
                     $("#exilus-slot").css("border-color", "#F94E4E");
@@ -1999,9 +2031,22 @@ $(document).ready(function() {
                     $("#aura-slot").css("border-color", "#F94E4E");
                     $("#aura-slot").css("background-color", "#581A1A");
                 }
+                let mod = $(this);
                 if (!$("#exilus-slot").hasClass("contains-mod")){
-                    $("#exilus-slot").css("border-color", "#04D004");
-                    $("#exilus-slot").css("background-color", "#375223");
+                    let modSlotPolarityImg = $("#exilus-slot").find(".current-polarity img").attr("src");
+                    let modPolarityImg = mod.find(".polarity").attr("src");
+                    if (modSlotPolarityImg === undefined){
+                        $("#exilus-slot").css("border-color", "#04D004");
+                        $("#exilus-slot").css("background-color", "#375223");
+                    }
+                    else if (modSlotPolarityImg != modPolarityImg){
+                        $("#exilus-slot").css("border-color", "#E7A268");
+                        $("#exilus-slot").css("background-color", "#995100");
+                    }
+                    else{
+                        $("#exilus-slot").css("border-color", "#688EF3");
+                        $("#exilus-slot").css("background-color", "#004799");
+                    }
                 }
                 if ($(this).parent().is("#exilus-slot")){
                     $("#exilus-img").css("width", "50px");
@@ -2052,7 +2097,7 @@ $(document).ready(function() {
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && !dragged.hasClass("exilus") && !dragged.hasClass("aura")){
-                if (overCapacity(dragged)){
+                if (overCapacity(dragged, $(this))){
                     return false;
                 }
                 return true;
@@ -2088,7 +2133,7 @@ $(document).ready(function() {
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && dragged.hasClass("exilus") && !dragged.hasClass("aura")){
-                if (overCapacity(dragged)){
+                if (overCapacity(dragged, $(this))){
                     return false;
                 }
                 return true;
