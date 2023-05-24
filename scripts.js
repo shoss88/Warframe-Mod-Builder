@@ -1794,6 +1794,7 @@ function changeCurrentPolarity(obj){
     let polarityImage = polarity.firstElementChild.getAttribute("src");
     let dropdown = polarity.parentElement;
     let currentPolarity = dropdown.previousElementSibling;
+    let currentPolarityImage = currentPolarity.firstElementChild.getAttribute("src");
     let mod = $(currentPolarity).parent().find(".mod-wrap");
     if ($(currentPolarity).parent().hasClass("contains-mod")){
         if ($(currentPolarity).parent().hasClass("mod-slot") || $(currentPolarity).parent().is("#exilus-slot")){
@@ -1804,7 +1805,7 @@ function changeCurrentPolarity(obj){
         }
     }
     if (polarityImage === null){
-        if (currentPolarity.innerText !== "--"){
+        if (currentPolarityImage !== null){
             updateFormaCount(false);
         }
         currentPolarity.innerHTML = "";
@@ -1812,7 +1813,7 @@ function changeCurrentPolarity(obj){
         currentPolarity.firstElementChild.innerText = "--";
     }
     else{
-        if (currentPolarity.innerText === "--"){
+        if (currentPolarityImage === null){
             updateFormaCount(true);
         }
         currentPolarity.innerHTML = "";
@@ -1820,14 +1821,38 @@ function changeCurrentPolarity(obj){
         currentPolarity.firstElementChild.setAttribute("src", polarityImage);
     }
     if ($(currentPolarity).parent().hasClass("contains-mod")){
-        if (overCapacity(mod, mod.parent())){
-            mod.parent().removeClass("contains-mod");
-            mod.appendTo("#mod-section");
-            sortGrid();
-            alert("This new polarity is incompatible with the current mod and there is no more mod capacity. As a result, it has been added back to the mod section.")
+        if ($(currentPolarity).parent().hasClass("mod-slot") || $(currentPolarity).parent().is("#exilus-slot")){
+            if (overCapacity(mod, mod.parent())){
+                mod.parent().removeClass("contains-mod");
+                mod.appendTo("#mod-section");
+                sortGrid();
+                alert("This new polarity is incompatible with the current mod and there is no more mod capacity. As a result, it has been added back to the mod section.")
+            }
+            else{
+                fixCurrentCapacity(mod, true);
+            }
         }
-        else{
-            fixCurrentCapacity(mod, true);
+        else if ($(currentPolarity).parent().is("#aura-slot")){
+            if (overCapacity(mod, mod.parent())){
+                if (currentPolarityImage === null){
+                    currentPolarity.innerHTML = "";
+                    currentPolarity.appendChild(document.createElement('p'));
+                    currentPolarity.firstElementChild.innerText = "--";
+                    if (polarityImage !== null){
+                        updateFormaCount(false);
+                    }
+                }
+                else{
+                    currentPolarity.innerHTML = "";
+                    currentPolarity.appendChild(document.createElement('img'));
+                    currentPolarity.firstElementChild.setAttribute("src", currentPolarityImage);    
+                    if (polarityImage === null){
+                        updateFormaCount(true);
+                    }             
+                }
+                alert("This new polarity is incompatible with the current mod and there is no more mod capacity. As a result, it will not be applied.")
+            }
+            fixMaxCapacity(mod, true);
         }
     }
     dropdown.style.display = "none";
@@ -1849,7 +1874,7 @@ function updateProgressBar(){
     let progressBar = document.getElementById("progress-filled");
     let remaining = parseInt(document.getElementById("mod-remaining").innerText);
     let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
-    let percent = (max - remaining) * 1.67;
+    let percent = (max - remaining) * (100.0 / max);
     progressBar.style.width = `${percent}%`;
 }
 
@@ -1923,13 +1948,24 @@ function fixMaxCapacity(mod, increaseSpace){
 function overCapacity(mod, modSlot){
     let modCost = parseInt(mod.find(".drain").text());
     let remaining = parseInt($("#mod-remaining").text());
-    if (polarized(mod, modSlot) === -1){
-        modCost = Math.floor(modCost * 1.25);
+    if (modSlot.hasClass("mod-slot") || modSlot.is("#exilus-slot")){
+        if (polarized(mod, modSlot) === -1){
+            modCost = Math.floor(modCost * 1.25);
+        }
+        else if (polarized(mod, modSlot) === 1){
+            modCost = Math.floor(modCost * 0.5);
+        }
+        return (remaining - modCost) < 0;
     }
-    else if (polarized(mod, modSlot) === 1){
-        modCost = Math.floor(modCost * 0.5);
+    else if (modSlot.is("#aura-slot")){
+        if (polarized(mod, modSlot) === -1){
+            modCost = Math.floor(modCost * 0.8);
+        }
+        else if (polarized(mod, mod.parent()) === 1){
+            modCost = Math.floor(modCost * 2);
+        }
+        return (remaining + modCost) < 0;
     }
-    return (remaining - modCost) < 0;
 }
 
 $(document).ready(function() {
@@ -1956,6 +1992,12 @@ $(document).ready(function() {
                 else if ($(this).parent().is("#aura-slot")){
                     let modCost = parseInt($(this).find(".drain").text());
                     let remaining = parseInt($("#mod-remaining").text());
+                    if (polarized($(this), $(this).parent()) === -1){
+                        modCost = Math.floor(modCost * 0.8);
+                    }
+                    else if (polarized($(this), $(this).parent()) === 1){
+                        modCost = Math.floor(modCost * 2);
+                    }
                     if (remaining - modCost < 0){
                         alert("Cannot remove this mod because there won't be enough mod capacity left.");
                     }
