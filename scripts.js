@@ -1981,12 +1981,12 @@ $(document).ready(function() {
     $(".mod-wrap").mousedown(function(event){
         if (event.which == 3){
             if (!$(this).parent().is("#mod-section")){
-                $(this).parent().removeClass("contains-mod");
                 if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
                     fixCurrentCapacity($(this), false);
                     if ($(this).parent().is("#exilus-slot")){
                         $("#exilus-img").css("width", "50px");
                     }
+                    $(this).parent().removeClass("contains-mod");
                     $(this).appendTo("#mod-section");
                 }
                 else if ($(this).parent().is("#aura-slot")){
@@ -2004,6 +2004,7 @@ $(document).ready(function() {
                     else{
                         $("#aura-img").css("width", "50px");
                         fixMaxCapacity($(this), false);
+                        $(this).parent().removeClass("contains-mod");
                         $(this).appendTo("#mod-section");
                     }
                 }
