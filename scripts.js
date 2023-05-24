@@ -1794,6 +1794,15 @@ function changeCurrentPolarity(obj){
     let polarityImage = polarity.firstElementChild.getAttribute("src");
     let dropdown = polarity.parentElement;
     let currentPolarity = dropdown.previousElementSibling;
+    let mod = $(currentPolarity).parent().find(".mod-wrap");
+    if ($(currentPolarity).parent().hasClass("contains-mod")){
+        if ($(currentPolarity).parent().hasClass("mod-slot") || $(currentPolarity).parent().is("#exilus-slot")){
+            fixCurrentCapacity(mod, false);
+        }
+        else if ($(currentPolarity).parent().is("#aura-slot")){
+            fixMaxCapacity(mod, false);
+        }
+    }
     if (polarityImage === null){
         if (currentPolarity.innerText !== "--"){
             updateFormaCount(false);
@@ -1809,6 +1818,17 @@ function changeCurrentPolarity(obj){
         currentPolarity.innerHTML = "";
         currentPolarity.appendChild(document.createElement('img'));
         currentPolarity.firstElementChild.setAttribute("src", polarityImage);
+    }
+    if ($(currentPolarity).parent().hasClass("contains-mod")){
+        if (overCapacity(mod, mod.parent())){
+            mod.parent().removeClass("contains-mod");
+            mod.appendTo("#mod-section");
+            sortGrid();
+            alert("This new polarity is incompatible with the current mod and there is no more mod capacity. As a result, it has been added back to the mod section.")
+        }
+        else{
+            fixCurrentCapacity(mod, true);
+        }
     }
     dropdown.style.display = "none";
 }
