@@ -1,3 +1,7 @@
+/**
+ * The array below serves the purpose of storing the base stats of every warframe.
+ * This is accessed to load the html with the proper values.
+ */
 let warframes = [
     {
         name: "Ash",
@@ -1731,7 +1735,9 @@ let warframes = [
     }
 ]
 
-// Load up page with correct warframe info
+/**
+ * Uses binary search on the warframes array to find the clicked element and change DOM accordingly.
+ */
 let warframe = localStorage.getItem("warframe");
 let warframePic = localStorage.getItem("warframe-pic");
 let low = 0
@@ -1771,6 +1777,13 @@ while (low <= high){
 }
 
 // Function section
+
+/**
+ * openDropdown: 
+ * Opens the dropdown menu above every mod slot.
+ * @param {event} obj - the event object
+ * @return {void} Nothing
+ */
 let buttons = document.getElementsByClassName("current-polarity");
 for (let i = 0; i < buttons.length; i++){
     buttons[i].addEventListener("click", openDropdown);
@@ -1785,6 +1798,14 @@ function openDropdown(obj){
     }
 }
 
+/**
+ * changeCurrentPolarity:
+ * Changes the displayed polarity of the mod slot based on the polarity clicked by the user.
+ * This function takes into account of any mod within the mod slot and changes the mod capacity 
+ * accordingly. 
+ * @param {event} obj - the event object
+ * @return {void} Nothing
+ */
 let polarities = document.getElementsByClassName("polarity-button");
 for (let i = 0; i < polarities.length; i++){
     polarities[i].addEventListener("click", changeCurrentPolarity);
@@ -1796,6 +1817,8 @@ function changeCurrentPolarity(obj){
     let currentPolarity = dropdown.previousElementSibling;
     let currentPolarityImage = currentPolarity.firstElementChild.getAttribute("src");
     let mod = $(currentPolarity).parent().find(".mod-wrap");
+    // Check if the current mod slot contains a mod. 
+    // If a mod is found, revert its cost impact on the mod capacity.
     if ($(currentPolarity).parent().hasClass("contains-mod")){
         if ($(currentPolarity).parent().hasClass("mod-slot") || $(currentPolarity).parent().is("#exilus-slot")){
             fixCurrentCapacity(mod, false);
@@ -1821,7 +1844,10 @@ function changeCurrentPolarity(obj){
         currentPolarity.firstElementChild.setAttribute("src", polarityImage);
     }
     if ($(currentPolarity).parent().hasClass("contains-mod")){
+        // Take into account the newly neutral, positively polarized, or negatively polarized mod cost.
         if ($(currentPolarity).parent().hasClass("mod-slot") || $(currentPolarity).parent().is("#exilus-slot")){
+            // If the normal or exilus mod cannot remain in the slot after the new polarity,
+            // return the mod to the mod section, otherwise apply it.
             if (overCapacity(mod, mod.parent())){
                 mod.parent().removeClass("contains-mod");
                 mod.appendTo("#mod-section");
@@ -1833,6 +1859,8 @@ function changeCurrentPolarity(obj){
             }
         }
         else if ($(currentPolarity).parent().is("#aura-slot")){
+            // If the aura mod cannot remain in the slot after the new polarity,
+            // revert the new polarity change, otherwise apply it.
             if (overCapacity(mod, mod.parent())){
                 currentPolarity.innerHTML = "";
                 if (currentPolarityImage === null){
@@ -1857,6 +1885,12 @@ function changeCurrentPolarity(obj){
     dropdown.style.display = "none";
 }
 
+/**
+ * updateFormaCount:
+ * Updates the forma count.
+ * @param {boolean} add - Add to the forma count if true, subtract otherwise.
+ * @return {void} Nothing
+ */
 function updateFormaCount(add){
     let formaCount = document.getElementById("forma-count");
     let originalCount = parseInt(formaCount.innerText);
@@ -1869,6 +1903,11 @@ function updateFormaCount(add){
     }
 }
 
+/**
+ * updateProgressBar:
+ * Update the mod capacity bar and its styling to reflect how much capacity is left.
+ * @return {void} Nothing
+ */
 function updateProgressBar(){
     let progressBar = document.getElementById("progress-filled");
     let remaining = parseInt(document.getElementById("mod-remaining").innerText);
@@ -1877,6 +1916,11 @@ function updateProgressBar(){
     progressBar.style.width = `${percent}%`;
 }
 
+/**
+ * sortGrid:
+ * Sort the mod section alphabetically by mod name.
+ * @return {void} Nothing
+ */
 function sortGrid(){
     let grid = $("#mod-section");
     let allMods = $("#mod-section").children().get();
@@ -1887,6 +1931,16 @@ function sortGrid(){
     });
     grid.append(sortedMods);
 }
+
+/**
+ * polarized:
+ * Determines whether or not a mod slot and its mod have compatible polarities.
+ * @param {jQuery} mod - jQuery object representing the mod.
+ * @param {jQuery} modSlot - jQuery object representing the mod slot of the mod.
+ * @return {int} - 1 if the mod's polarity is compatible with the mod slot's polarity,
+ * 0 if the mod slot has no polarity, and
+ * -1 if the mod's polarity is incompatible with the mod slot's polarity.
+ */
 function polarized(mod, modSlot){
     let currentPolarityImg = modSlot.find(".current-polarity img").attr("src");
     let modPolarityImg = mod.find(".polarity").attr("src");
@@ -1900,6 +1954,14 @@ function polarized(mod, modSlot){
         return -1;
     }
 }
+
+/**
+ * fixCurrentCapacity:
+ * Changes the remaining mod capacity, taking into account mod polarities.
+ * @param {jQuery} mod - jQuery object representing the mod.
+ * @param {boolean} decreaseSpace - decrease mod capacity if true, increase it otherwise.
+ * @return {void} Nothing
+ */
 function fixCurrentCapacity(mod, decreaseSpace){
     let remaining = parseInt($("#mod-remaining").text());
     let modCost = parseInt(mod.find(".drain").text());
@@ -1919,6 +1981,14 @@ function fixCurrentCapacity(mod, decreaseSpace){
     $("#mod-remaining").text(newRemaining);
     updateProgressBar();
 }
+
+/**
+ * fixMaxCapacity:
+ * Changes the max capacity and remaining mod capacity, taking into account mod polarities.
+ * @param {jQuery} mod - jQuery object representing the mod.
+ * @param {boolean} increaseSpace - increase mod capacity if true, decrease it otherwise.
+ * @return {void} Nothing
+ */
 function fixMaxCapacity(mod, increaseSpace){
     let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
     let modCost = parseInt(mod.find(".drain").text());
@@ -1943,6 +2013,13 @@ function fixMaxCapacity(mod, increaseSpace){
     $("#mod-remaining").text(newRemaining);
 }
 
+/**
+ * overCapacity:
+ * Determines whether or not the mod can be added based on the current mod capacity.
+ * @param {jQuery} mod - jQuery object representing the mod.
+ * @param {jQuery} modSlot - jQuery object representing the mod slot of the mod. 
+ * @return {boolean} - True if the mod can be safely added, false otherwise.
+ */
 function overCapacity(mod, modSlot){
     let modCost = parseInt(mod.find(".drain").text());
     let remaining = parseInt($("#mod-remaining").text());
@@ -1967,6 +2044,7 @@ function overCapacity(mod, modSlot){
 }
 
 $(document).ready(function() {
+    // Removing the right click context menu mechanic from every mod slot.
     $(".mod-slot").bind("contextmenu", function(e) {
         return false;
     });
@@ -1976,6 +2054,11 @@ $(document).ready(function() {
     $("#aura-slot").bind("contextmenu", function(e) {
         return false;
     });
+
+    /**
+     * Allows user to right click on a mod within a mod slot to send it back to its original place 
+     * in the mod section. Mod capacity is affected.
+     */
     $(".mod-wrap").mousedown(function(event){
         let mod = $(this);
         if (event.which == 3){
@@ -1997,6 +2080,10 @@ $(document).ready(function() {
                     else if (polarized(mod, mod.parent()) === 1){
                         modCost = Math.floor(modCost * 2);
                     }
+                    /**
+                     * If removing the current aura mod would make it impossible to have other 
+                     * mod slots occupied, alert the user. Otherwise, remove the mod.
+                     */
                     if (remaining - modCost < 0){
                         alert("Cannot remove this mod because there won't be enough mod capacity left.");
                     }
@@ -2030,6 +2117,11 @@ $(document).ready(function() {
             let blueBack = "#004799";
             let redBord = "#F94E4E";
             let redBack = "#581A1A";
+            /**
+             * When grabbed, normal mods can only be added to normal mod slots, highlighted as green.
+             * Mod slots with incompatible polarities will be highlighted orange, while compatible 
+             * slots are highlighted blue.
+             */
             if (mod.hasClass("mod-wrap") && !mod.hasClass("exilus") && !mod.hasClass("aura")){
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
@@ -2058,6 +2150,11 @@ $(document).ready(function() {
                     $("#exilus-slot").css("background-color", redBack);
                 }
             }
+            /**
+             * When grabbed, aura mods can only be added to the aura mod slot, highlighted as green.
+             * An aura slot with an incompatible polarity will be highlighted orange, while a compatible 
+             * slot is highlighted blue.
+             */
             else if (mod.hasClass("mod-wrap") && mod.hasClass("aura") && !mod.hasClass("exilus")){
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
@@ -2089,6 +2186,11 @@ $(document).ready(function() {
                     $("#aura-img").css("width", "50px");
                 }
             }
+            /**
+             * When grabbed, exilus mods can only be added to the exilus mod slot, highlighted as green.
+             * An exilus slot with an incompatible polarity will be highlighted orange, while a compatible 
+             * slot is highlighted blue.
+             */
             else if (mod.hasClass("mod-wrap") && mod.hasClass("exilus") && !mod.hasClass("aura")){
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
@@ -2120,6 +2222,7 @@ $(document).ready(function() {
                     $("#exilus-img").css("width", "50px");
                 }
             }
+            // When grabbed, the mod capacity will be changed as if the mod wasn't applied to the slot.
             if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
                 fixCurrentCapacity($(this), false);
             }
@@ -2130,6 +2233,7 @@ $(document).ready(function() {
         stop: function (event, ui) {
             let mod = $(this);
             mod.show();
+            // When let go, the mod capacity will be changed accordingly.
             if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
                 fixCurrentCapacity(mod, true);
             }
@@ -2145,6 +2249,7 @@ $(document).ready(function() {
             else if (mod.parent().is("#exilus-slot")){
                 $("#exilus-img").css("width", "0px");
             }
+            // Revert all slot colors to normal.
             mod.parent().addClass("contains-mod");
             $(".mod-slot").css("border-color", "white");
             $(".mod-slot").css("background-color", "transparent");
@@ -2159,6 +2264,9 @@ $(document).ready(function() {
     });
     $(".mod-slot").droppable({
         accept: function(dragged){
+            /**
+             * Accept only 1 normal mod (at a time) that doesn't drain the remaining mod capacity below 0.
+             */
             let modSlot = $(this);
             if (modSlot.hasClass("contains-mod")){
                 return false;
@@ -2179,6 +2287,9 @@ $(document).ready(function() {
         }
     });
     $("#aura-slot").droppable({
+        /**
+         * Accept only 1 aura mod (at a time).
+         */
         accept: function(dragged){
             let modSlot = $(this);
             if (modSlot.hasClass("contains-mod")){
@@ -2198,6 +2309,9 @@ $(document).ready(function() {
         }
     });
     $("#exilus-slot").droppable({
+        /**
+         * Accept only 1 exilus mod (at a time) that doesn't drain the remaining mod capacity below 0.
+         */
         accept: function(dragged){
             let modSlot = $(this);
             if (modSlot.hasClass("contains-mod")){
