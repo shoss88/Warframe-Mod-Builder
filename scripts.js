@@ -1834,8 +1834,8 @@ function changeCurrentPolarity(obj){
         }
         else if ($(currentPolarity).parent().is("#aura-slot")){
             if (overCapacity(mod, mod.parent())){
+                currentPolarity.innerHTML = "";
                 if (currentPolarityImage === null){
-                    currentPolarity.innerHTML = "";
                     currentPolarity.appendChild(document.createElement('p'));
                     currentPolarity.firstElementChild.innerText = "--";
                     if (polarityImage !== null){
@@ -1843,7 +1843,6 @@ function changeCurrentPolarity(obj){
                     }
                 }
                 else{
-                    currentPolarity.innerHTML = "";
                     currentPolarity.appendChild(document.createElement('img'));
                     currentPolarity.firstElementChild.setAttribute("src", currentPolarityImage);    
                     if (polarityImage === null){
@@ -1904,6 +1903,7 @@ function polarized(mod, modSlot){
 function fixCurrentCapacity(mod, decreaseSpace){
     let remaining = parseInt($("#mod-remaining").text());
     let modCost = parseInt(mod.find(".drain").text());
+    let newRemaining = 0;
     if (polarized(mod, mod.parent()) === -1){
         modCost = Math.floor(modCost * 1.25);
     }
@@ -1911,19 +1911,20 @@ function fixCurrentCapacity(mod, decreaseSpace){
         modCost = Math.floor(modCost * 0.5);
     }
     if (decreaseSpace == true){
-        let newRemaining = remaining - modCost;
-        $("#mod-remaining").text(newRemaining);
-        updateProgressBar();
+        newRemaining = remaining - modCost;
     }
     else{
-        let newRemaining = remaining + modCost;
-        $("#mod-remaining").text(newRemaining);
-        updateProgressBar();
+        newRemaining = remaining + modCost;
     }
+    $("#mod-remaining").text(newRemaining);
+    updateProgressBar();
 }
 function fixMaxCapacity(mod, increaseSpace){
     let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
     let modCost = parseInt(mod.find(".drain").text());
+    let newMax = 0;
+    let remaining = parseInt($("#mod-remaining").text());
+    let newRemaining = 0;
     if (polarized(mod, mod.parent()) === -1){
         modCost = Math.floor(modCost * 0.8);
     }
@@ -1931,20 +1932,17 @@ function fixMaxCapacity(mod, increaseSpace){
         modCost = Math.floor(modCost * 2);
     }
     if (increaseSpace == true){
-        let newMax = max + modCost;
-        $("#mod-total").text(`\u00A0/ ${newMax}`);
-        let remaining = parseInt($("#mod-remaining").text());
-        let newRemaining = remaining + modCost;
-        $("#mod-remaining").text(newRemaining);
+        newMax = max + modCost;
+        newRemaining = remaining + modCost;
     }
     else{
-        let newMax = max - modCost;
-        $("#mod-total").text(`\u00A0/ ${newMax}`);
-        let remaining = parseInt($("#mod-remaining").text());
-        let newRemaining = remaining - modCost;
-        $("#mod-remaining").text(newRemaining);
+        newMax = max - modCost;
+        newRemaining = remaining - modCost;
     }
+    $("#mod-total").text(`\u00A0/ ${newMax}`);
+    $("#mod-remaining").text(newRemaining);
 }
+
 function overCapacity(mod, modSlot){
     let modCost = parseInt(mod.find(".drain").text());
     let remaining = parseInt($("#mod-remaining").text());
@@ -1979,23 +1977,24 @@ $(document).ready(function() {
         return false;
     });
     $(".mod-wrap").mousedown(function(event){
+        let mod = $(this);
         if (event.which == 3){
-            if (!$(this).parent().is("#mod-section")){
-                if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
-                    fixCurrentCapacity($(this), false);
-                    if ($(this).parent().is("#exilus-slot")){
+            if (!mod.parent().is("#mod-section")){
+                if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
+                    fixCurrentCapacity(mod, false);
+                    if (mod.parent().is("#exilus-slot")){
                         $("#exilus-img").css("width", "50px");
                     }
-                    $(this).parent().removeClass("contains-mod");
-                    $(this).appendTo("#mod-section");
+                    mod.parent().removeClass("contains-mod");
+                    mod.appendTo("#mod-section");
                 }
-                else if ($(this).parent().is("#aura-slot")){
-                    let modCost = parseInt($(this).find(".drain").text());
+                else if (mod.parent().is("#aura-slot")){
+                    let modCost = parseInt(mod.find(".drain").text());
                     let remaining = parseInt($("#mod-remaining").text());
-                    if (polarized($(this), $(this).parent()) === -1){
+                    if (polarized(mod, mod.parent()) === -1){
                         modCost = Math.floor(modCost * 0.8);
                     }
-                    else if (polarized($(this), $(this).parent()) === 1){
+                    else if (polarized(mod, mod.parent()) === 1){
                         modCost = Math.floor(modCost * 2);
                     }
                     if (remaining - modCost < 0){
@@ -2003,9 +2002,9 @@ $(document).ready(function() {
                     }
                     else{
                         $("#aura-img").css("width", "50px");
-                        fixMaxCapacity($(this), false);
-                        $(this).parent().removeClass("contains-mod");
-                        $(this).appendTo("#mod-section");
+                        fixMaxCapacity(mod, false);
+                        mod.parent().removeClass("contains-mod");
+                        mod.appendTo("#mod-section");
                     }
                 }
             }
@@ -2020,129 +2019,133 @@ $(document).ready(function() {
             top: 20
         },
         start: function (event, ui) {
-            $(this).hide();
-            $(this).parent().removeClass("contains-mod");
-            if ($(this).hasClass("mod-wrap") && !$(this).hasClass("exilus") && !$(this).hasClass("aura")){
-                let mod = $(this);
+            let mod = $(this);
+            mod.hide();
+            mod.parent().removeClass("contains-mod");
+            let greenBord = "#04D004";
+            let greenBack = "#375223";
+            let orangeBord = "#E7A268";
+            let orangeBack = "#995100";
+            let blueBord = "#688EF3";
+            let blueBack = "#004799";
+            let redBord = "#F94E4E";
+            let redBack = "#581A1A";
+            if (mod.hasClass("mod-wrap") && !mod.hasClass("exilus") && !mod.hasClass("aura")){
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
                         let modSlotPolarityImg = $(this).find(".current-polarity img").attr("src");
                         let modPolarityImg = mod.find(".polarity").attr("src");
                         if (modSlotPolarityImg === undefined){
-                            $(this).css("border-color", "#04D004");
-                            $(this).css("background-color", "#375223");
+                            $(this).css("border-color", greenBord);
+                            $(this).css("background-color", greenBack);
                         }
                         else if (modSlotPolarityImg != modPolarityImg){
-                            $(this).css("border-color", "#E7A268");
-                            $(this).css("background-color", "#995100");
+                            $(this).css("border-color", orangeBord);
+                            $(this).css("background-color", orangeBack);
                         }
                         else{
-                            $(this).css("border-color", "#688EF3");
-                            $(this).css("background-color", "#004799");
+                            $(this).css("border-color", blueBord);
+                            $(this).css("background-color", blueBack);
                         }
                     }
                 });
                 if (!$("#aura-slot").hasClass("contains-mod")){
-                    $("#aura-slot").css("border-color", "#F94E4E");
-                    $("#aura-slot").css("background-color", "#581A1A");
+                    $("#aura-slot").css("border-color", redBord);
+                    $("#aura-slot").css("background-color", redBack);
                 }
                 if (!$("#exilus-slot").hasClass("contains-mod")){
-                    $("#exilus-slot").css("border-color", "#F94E4E");
-                    $("#exilus-slot").css("background-color", "#581A1A");
+                    $("#exilus-slot").css("border-color", redBord);
+                    $("#exilus-slot").css("background-color", redBack);
                 }
             }
-            else if ($(this).hasClass("mod-wrap") && $(this).hasClass("aura") && !$(this).hasClass("exilus")){
+            else if (mod.hasClass("mod-wrap") && mod.hasClass("aura") && !mod.hasClass("exilus")){
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
-                        $(this).css("border-color", "#F94E4E");
-                        $(this).css("background-color", "#581A1A");
+                        $(this).css("border-color", redBord);
+                        $(this).css("background-color", redBack);
                     }
                 });
-                let mod = $(this);
                 if (!$("#aura-slot").hasClass("contains-mod")){
                     let modSlotPolarityImg = $("#aura-slot").find(".current-polarity img").attr("src");
                     let modPolarityImg = mod.find(".polarity").attr("src");
                     if (modSlotPolarityImg === undefined){
-                        $("#aura-slot").css("border-color", "#04D004");
-                        $("#aura-slot").css("background-color", "#375223");
+                        $("#aura-slot").css("border-color", greenBord);
+                        $("#aura-slot").css("background-color", greenBack);
                     }
                     else if (modSlotPolarityImg != modPolarityImg){
-                        $("#aura-slot").css("border-color", "#E7A268");
-                        $("#aura-slot").css("background-color", "#995100");
+                        $("#aura-slot").css("border-color", orangeBord);
+                        $("#aura-slot").css("background-color", orangeBack);
                     }
                     else{
-                        $("#aura-slot").css("border-color", "#688EF3");
-                        $("#aura-slot").css("background-color", "#004799");
+                        $("#aura-slot").css("border-color", blueBord);
+                        $("#aura-slot").css("background-color", blueBack);
                     }
                 }
                 if (!$("#exilus-slot").hasClass("contains-mod")){
-                    $("#exilus-slot").css("border-color", "#F94E4E");
-                    $("#exilus-slot").css("background-color", "#581A1A");
+                    $("#exilus-slot").css("border-color", redBord);
+                    $("#exilus-slot").css("background-color", redBack);
                 }
-                if ($(this).parent().is("#aura-slot")){
+                if (mod.parent().is("#aura-slot")){
                     $("#aura-img").css("width", "50px");
                 }
             }
-            else if ($(this).hasClass("mod-wrap") && $(this).hasClass("exilus") && !$(this).hasClass("aura")){
+            else if (mod.hasClass("mod-wrap") && mod.hasClass("exilus") && !mod.hasClass("aura")){
                 $(".mod-slot").each(function(){
                     if (!$(this).hasClass("contains-mod")){
-                        $(this).css("border-color", "#F94E4E");
-                        $(this).css("background-color", "#581A1A");
+                        $(this).css("border-color", redBord);
+                        $(this).css("background-color", redBack);
                     }
                 });
                 if (!$("#aura-slot").hasClass("contains-mod")){
-                    $("#aura-slot").css("border-color", "#F94E4E");
-                    $("#aura-slot").css("background-color", "#581A1A");
+                    $("#aura-slot").css("border-color", redBord);
+                    $("#aura-slot").css("background-color", redBack);
                 }
-                let mod = $(this);
                 if (!$("#exilus-slot").hasClass("contains-mod")){
                     let modSlotPolarityImg = $("#exilus-slot").find(".current-polarity img").attr("src");
                     let modPolarityImg = mod.find(".polarity").attr("src");
                     if (modSlotPolarityImg === undefined){
-                        $("#exilus-slot").css("border-color", "#04D004");
-                        $("#exilus-slot").css("background-color", "#375223");
+                        $("#exilus-slot").css("border-color", greenBord);
+                        $("#exilus-slot").css("background-color", greenBack);
                     }
                     else if (modSlotPolarityImg != modPolarityImg){
-                        $("#exilus-slot").css("border-color", "#E7A268");
-                        $("#exilus-slot").css("background-color", "#995100");
+                        $("#exilus-slot").css("border-color", orangeBord);
+                        $("#exilus-slot").css("background-color", orangeBack);
                     }
                     else{
-                        $("#exilus-slot").css("border-color", "#688EF3");
-                        $("#exilus-slot").css("background-color", "#004799");
+                        $("#exilus-slot").css("border-color", blueBord);
+                        $("#exilus-slot").css("background-color", blueBack);
                     }
                 }
-                if ($(this).parent().is("#exilus-slot")){
+                if (mod.parent().is("#exilus-slot")){
                     $("#exilus-img").css("width", "50px");
                 }
             }
-            if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
+            if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
                 fixCurrentCapacity($(this), false);
             }
-            else if ($(this).parent().is("#aura-slot")){
+            else if (mod.parent().is("#aura-slot")){
                 fixMaxCapacity($(this), false);
             }
         },
         stop: function (event, ui) {
-            $(this).show();
-            if ($(this).parent().hasClass("mod-slot") || $(this).parent().is("#exilus-slot")){
-                fixCurrentCapacity($(this), true);
+            let mod = $(this);
+            mod.show();
+            if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
+                fixCurrentCapacity(mod, true);
             }
-            else if ($(this).parent().is("#aura-slot")){
-                fixMaxCapacity($(this), true);
+            else if (mod.parent().is("#aura-slot")){
+                fixMaxCapacity(mod, true);
             }
         },
         revert: function(){
-            if ($(this).parent().hasClass("mod-slot")){
-                $(this).parent().addClass("contains-mod");
-            }
-            else if ($(this).parent().is("#aura-slot")){
+            let mod = $(this);
+            if (mod.parent().is("#aura-slot")){
                 $("#aura-img").css("width", "0px");
-                $(this).parent().addClass("contains-mod");
             }
-            else if ($(this).parent().is("#exilus-slot")){
+            else if (mod.parent().is("#exilus-slot")){
                 $("#exilus-img").css("width", "0px");
-                $(this).parent().addClass("contains-mod");
             }
+            mod.parent().addClass("contains-mod");
             $(".mod-slot").css("border-color", "white");
             $(".mod-slot").css("background-color", "transparent");
             $("#aura-slot").css("border-color", "white");
@@ -2156,11 +2159,12 @@ $(document).ready(function() {
     });
     $(".mod-slot").droppable({
         accept: function(dragged){
-            if ($(this).hasClass("contains-mod")){
+            let modSlot = $(this);
+            if (modSlot.hasClass("contains-mod")){
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && !dragged.hasClass("exilus") && !dragged.hasClass("aura")){
-                if (overCapacity(dragged, $(this))){
+                if (overCapacity(dragged, modSlot)){
                     return false;
                 }
                 return true;
@@ -2169,13 +2173,15 @@ $(document).ready(function() {
         },
         tolerance: "pointer",
         drop: function(event, ui){
-            $(this).append(ui.draggable);
-            $(this).addClass("contains-mod");
+            let modSlot = $(this);
+            modSlot.append(ui.draggable);
+            modSlot.addClass("contains-mod");
         }
     });
     $("#aura-slot").droppable({
         accept: function(dragged){
-            if ($(this).hasClass("contains-mod")){
+            let modSlot = $(this);
+            if (modSlot.hasClass("contains-mod")){
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && dragged.hasClass("aura") && !dragged.hasClass("exilus")){
@@ -2185,18 +2191,20 @@ $(document).ready(function() {
         },
         tolerance: "pointer",
         drop: function(event, ui){
-            $(this).append(ui.draggable);
-            $(this).addClass("contains-mod");
+            let modSlot = $(this);
+            modSlot.append(ui.draggable);
+            modSlot.addClass("contains-mod");
             $("#aura-img").css("width", "0px");
         }
     });
     $("#exilus-slot").droppable({
         accept: function(dragged){
-            if ($(this).hasClass("contains-mod")){
+            let modSlot = $(this);
+            if (modSlot.hasClass("contains-mod")){
                 return false;
             }
             else if (dragged.hasClass("mod-wrap") && dragged.hasClass("exilus") && !dragged.hasClass("aura")){
-                if (overCapacity(dragged, $(this))){
+                if (overCapacity(dragged, modSlot)){
                     return false;
                 }
                 return true;
@@ -2205,8 +2213,9 @@ $(document).ready(function() {
         },
         tolerance: "pointer",
         drop: function(event, ui){
-            $(this).append(ui.draggable);
-            $(this).addClass("contains-mod");
+            let modSlot = $(this);
+            modSlot.append(ui.draggable);
+            modSlot.addClass("contains-mod");
             $("#exilus-img").css("width", "0px");
         }
     });
