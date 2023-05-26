@@ -1775,7 +1775,7 @@ while (low <= high){
         mid = Math.floor((high + low) / 2)
     }
 }
-// let currentWarframeIndex = mid;
+let currentWarframeIndex = mid;
 
 // Function section
 /**
@@ -1893,7 +1893,7 @@ function changeCurrentPolarity(obj){
  */
 function updateFormaCount(add){
     let formaCount = document.getElementById("forma-count");
-    let originalCount = parseInt(formaCount.innerText);
+    let originalCount = parseInt(formaCount.innerText, 10);
     formaCount.innerText = "";
     if (add === true){
         formaCount.innerText = originalCount + 1;
@@ -1910,8 +1910,8 @@ function updateFormaCount(add){
  */
 function updateProgressBar(){
     let progressBar = document.getElementById("progress-filled");
-    let remaining = parseInt(document.getElementById("mod-remaining").innerText);
-    let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
+    let remaining = parseInt(document.getElementById("mod-remaining").innerText, 10);
+    let max = parseInt(document.getElementById("mod-total").innerText.substring(3), 10);
     let percent = (max - remaining) * (100.0 / max);
     progressBar.style.width = `${percent}%`;
 }
@@ -1963,8 +1963,8 @@ function polarized(mod, modSlot){
  * @return {void} Nothing
  */
 function fixCurrentCapacity(mod, decreaseSpace){
-    let remaining = parseInt($("#mod-remaining").text());
-    let modCost = parseInt(mod.find(".drain").text());
+    let remaining = parseInt($("#mod-remaining").text(), 10);
+    let modCost = parseInt(mod.find(".drain").text(), 10);
     let newRemaining = 0;
     if (polarized(mod, mod.parent()) === -1){
         modCost = Math.floor(modCost * 1.25);
@@ -1990,10 +1990,10 @@ function fixCurrentCapacity(mod, decreaseSpace){
  * @return {void} Nothing
  */
 function fixMaxCapacity(mod, increaseSpace){
-    let max = parseInt(document.getElementById("mod-total").innerText.substring(3));
-    let modCost = parseInt(mod.find(".drain").text());
+    let max = parseInt(document.getElementById("mod-total").innerText.substring(3), 10);
+    let modCost = parseInt(mod.find(".drain").text(), 10);
     let newMax = 0;
-    let remaining = parseInt($("#mod-remaining").text());
+    let remaining = parseInt($("#mod-remaining").text(), 10);
     let newRemaining = 0;
     if (polarized(mod, mod.parent()) === -1){
         modCost = Math.floor(modCost * 0.8);
@@ -2021,8 +2021,8 @@ function fixMaxCapacity(mod, increaseSpace){
  * @return {boolean} - True if the mod can be safely added, false otherwise.
  */
 function overCapacity(mod, modSlot){
-    let modCost = parseInt(mod.find(".drain").text());
-    let remaining = parseInt($("#mod-remaining").text());
+    let modCost = parseInt(mod.find(".drain").text(), 10);
+    let remaining = parseInt($("#mod-remaining").text(), 10);
     if (modSlot.hasClass("mod-slot") || modSlot.is("#exilus-slot")){
         if (polarized(mod, modSlot) === -1){
             modCost = Math.floor(modCost * 1.25);
@@ -2056,7 +2056,7 @@ function recalculateStat(modDesc, startIndex, revert, stat){
     let multiplier = 1;
     let value = 0;
     startIndex -= 1;
-    while (modDesc.charAt(startIndex) !== '+' || modDesc.charAt(startIndex) !== '-'){
+    while (modDesc.charAt(startIndex) !== '+' && modDesc.charAt(startIndex) !== '-'){
         value += (modDesc.charAt(startIndex).charCodeAt(0) - '0'.charCodeAt(0)) * multiplier;
         multiplier *= 10;
         startIndex -= 1;
@@ -2098,11 +2098,20 @@ function recalculateStat(modDesc, startIndex, revert, stat){
     }
     // Adding the # to the string allows jQuery to use it.
     stat = "#" + stat;
-    let currentStatValue = parseInt($(stat).text());
+    let currentStatValue = parseInt($(stat).text(), 10);
+    console.log((currentStatValue / baseValue) + value);
     let newStatValue = Math.floor(((currentStatValue / baseValue) + value) * baseValue);
+    console.log("new Stat Value " + newStatValue);
     $(stat).text(newStatValue);
 }
 
+/**
+ * changeStats:
+ * Sifts through a mod description to find every possible stat change and applies them.
+ * @param {jQuery} mod - the mod to extract values from. 
+ * @param {boolean} revert - true if stats should be reverted, false otherwise.
+ * @return {void} Nothing
+ */
 function changeStats(mod, revert){
     let modDesc = mod.find(".mod-effect").text();
     let searchFor = modDesc.indexOf("% Health");
@@ -2142,6 +2151,7 @@ function changeStats(mod, revert){
         recalculateStat(modDesc, searchFor, revert, "strength");
     }
 }
+
 $(document).ready(function() {
     // Removing the right click context menu mechanic from every mod slot.
     $(".mod-slot").bind("contextmenu", function(e) {
@@ -2168,11 +2178,12 @@ $(document).ready(function() {
                         $("#exilus-img").css("width", "50px");
                     }
                     mod.parent().removeClass("contains-mod");
+                    changeStats(mod, true);
                     mod.appendTo("#mod-section");
                 }
                 else if (mod.parent().is("#aura-slot")){
-                    let modCost = parseInt(mod.find(".drain").text());
-                    let remaining = parseInt($("#mod-remaining").text());
+                    let modCost = parseInt(mod.find(".drain").text(), 10);
+                    let remaining = parseInt($("#mod-remaining").text(), 10);
                     if (polarized(mod, mod.parent()) === -1){
                         modCost = Math.floor(modCost * 0.8);
                     }
@@ -2190,6 +2201,7 @@ $(document).ready(function() {
                         $("#aura-img").css("width", "50px");
                         fixMaxCapacity(mod, false);
                         mod.parent().removeClass("contains-mod");
+                        changeStats(mod, true);
                         mod.appendTo("#mod-section");
                     }
                 }
@@ -2323,10 +2335,12 @@ $(document).ready(function() {
             }
             // When grabbed, the mod capacity will be changed as if the mod wasn't applied to the slot.
             if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
-                fixCurrentCapacity($(this), false);
+                fixCurrentCapacity(mod, false);
+                changeStats(mod, true);
             }
             else if (mod.parent().is("#aura-slot")){
-                fixMaxCapacity($(this), false);
+                fixMaxCapacity(mod, false);
+                changeStats(mod, true);
             }
         },
         stop: function (event, ui) {
@@ -2335,9 +2349,11 @@ $(document).ready(function() {
             // When let go, the mod capacity will be changed accordingly.
             if (mod.parent().hasClass("mod-slot") || mod.parent().is("#exilus-slot")){
                 fixCurrentCapacity(mod, true);
+                changeStats(mod, false);
             }
             else if (mod.parent().is("#aura-slot")){
                 fixMaxCapacity(mod, true);
+                changeStats(mod, false);
             }
         },
         revert: function(){
