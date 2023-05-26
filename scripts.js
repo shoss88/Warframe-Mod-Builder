@@ -1733,7 +1733,7 @@ let warframes = [
         ability3Name: "Turbulence",
         ability4Name: "Tornado"
     }
-]
+];
 
 /**
  * Uses binary search on the warframes array to find the clicked element and change DOM accordingly.
@@ -1775,7 +1775,7 @@ while (low <= high){
         mid = Math.floor((high + low) / 2)
     }
 }
-let currentWarframeIndex = mid;
+// let currentWarframeIndex = mid;
 
 // Function section
 /**
@@ -2045,12 +2045,29 @@ function overCapacity(mod, modSlot){
 
 /**
  * recalculateStat:
- * Applies the new value additively to the stat;
- * @param {int} value - the value to be added.
- * @param {String} stat - the specific stat to be changed.
+ * Changes the given stat based on the bonus value from the mod.
+ * @param {String} modDesc - full description of the mod's effects.
+ * @param {int} startIndex - the index from which to derive the value.
+ * @param {boolean} revert - true if stats should be reverted, false otherwise.
+ * @param {String} stat - the stat to target.
  * @return {void} Nothing
  */
-function recalculateStat(value, stat){
+function recalculateStat(modDesc, startIndex, revert, stat){
+    let multiplier = 1;
+    let value = 0;
+    startIndex -= 1;
+    while (modDesc.charAt(startIndex) !== '+' || modDesc.charAt(startIndex) !== '-'){
+        value += (modDesc.charAt(startIndex).charCodeAt(0) - '0'.charCodeAt(0)) * multiplier;
+        multiplier *= 10;
+        startIndex -= 1;
+    }
+    if (modDesc.charAt(startIndex) === '-'){
+        value *= -1;
+    }
+    if (revert){
+        value *= -1;
+    }
+    value /= 100;
     let baseValue = 0;
     if (stat === "health"){
         baseValue = warframes[currentWarframeIndex].health;
@@ -2080,12 +2097,51 @@ function recalculateStat(value, stat){
         baseValue = warframes[currentWarframeIndex].strength;
     }
     // Adding the # to the string allows jQuery to use it.
-    let stat = "#" + stat;
+    stat = "#" + stat;
     let currentStatValue = parseInt($(stat).text());
-    let newStatValue = ((currentStatValue / baseValue) + value) * baseValue;
+    let newStatValue = Math.floor(((currentStatValue / baseValue) + value) * baseValue);
     $(stat).text(newStatValue);
 }
 
+function changeStats(mod, revert){
+    let modDesc = mod.find(".mod-effect").text();
+    let searchFor = modDesc.indexOf("% Health");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "health");
+    }
+    searchFor = modDesc.indexOf("% Shield Capacity");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "shield");
+    }
+    searchFor = modDesc.indexOf("% Armor");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "armor");
+    }
+    searchFor = modDesc.indexOf("% Sprint Speed");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "sprintspeed");
+    }
+    searchFor = modDesc.indexOf("% Energy Max");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "energy");
+    }
+    searchFor = modDesc.indexOf("% Ability Duration");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "duration");
+    }
+    searchFor = modDesc.indexOf("% Ability Efficiency");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "efficiency");
+    }
+    searchFor = modDesc.indexOf("% Ability Range");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "range");
+    }
+    searchFor = modDesc.indexOf("% Ability Strength");
+    if (searchFor !== -1){
+        recalculateStat(modDesc, searchFor, revert, "strength");
+    }
+}
 $(document).ready(function() {
     // Removing the right click context menu mechanic from every mod slot.
     $(".mod-slot").bind("contextmenu", function(e) {
