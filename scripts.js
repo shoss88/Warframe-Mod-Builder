@@ -1754,7 +1754,6 @@ while (low <= high){
         document.getElementById("health").innerText = warframes[mid].health;
         document.getElementById("shield").innerText = warframes[mid].shield;
         document.getElementById("armor").innerText = warframes[mid].armor;
-        document.getElementById("sprintspeed").innerText = warframes[mid].sprintspeed;
         document.getElementById("energy").innerText = warframes[mid].energy;
         document.getElementById("ability-1-img").setAttribute("src", warframes[mid].ability1);
         document.getElementById("ability-2-img").setAttribute("src", warframes[mid].ability2);
@@ -2078,9 +2077,6 @@ function recalculateStat(modDesc, startIndex, revert, stat){
     else if (stat === "armor"){
         baseValue = warframes[currentWarframeIndex].armor;
     }
-    else if (stat === "sprintspeed"){
-        baseValue = warframes[currentWarframeIndex].sprintspeed;
-    }
     else if (stat === "energy"){
         baseValue = warframes[currentWarframeIndex].energy;
     }
@@ -2123,10 +2119,6 @@ function changeStats(mod, revert){
     searchFor = modDesc.indexOf("% Armor");
     if (searchFor !== -1){
         recalculateStat(modDesc, searchFor, revert, "armor");
-    }
-    searchFor = modDesc.indexOf("% Sprint Speed");
-    if (searchFor !== -1){
-        recalculateStat(modDesc, searchFor, revert, "sprintspeed");
     }
     searchFor = modDesc.indexOf("% Energy Max");
     if (searchFor !== -1){
