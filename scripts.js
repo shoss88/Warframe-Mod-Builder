@@ -2099,9 +2099,7 @@ function recalculateStat(modDesc, startIndex, revert, stat){
     // Adding the # to the string allows jQuery to use it.
     stat = "#" + stat;
     let currentStatValue = parseInt($(stat).text(), 10);
-    console.log((currentStatValue / baseValue) + value);
-    let newStatValue = Math.floor(((currentStatValue / baseValue) + value) * baseValue);
-    console.log("new Stat Value " + newStatValue);
+    let newStatValue = Math.round(((currentStatValue / baseValue) + value) * baseValue);
     $(stat).text(newStatValue);
 }
 
